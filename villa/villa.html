@@ -1,357 +1,290 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Danh Sách Villa Hồ Bơi Theo Khu Vực | 호치민풀빌라</title>
-  <meta name="description" content="Danh sách villa hồ bơi tại TP.HCM, Hà Nội, Đà Nẵng, Phú Quốc, Vũng Tàu và Đà Lạt. Villa riêng tư phù hợp gia đình, nhóm bạn, sinh nhật, BBQ và nghỉ dưỡng.">
-  <meta name="keywords" content="villa hồ bơi, villa tphcm, villa hà nội, villa đà nẵng, villa phú quốc, villa vũng tàu, villa đà lạt">
-
+  <title>호치민풀빌라 목록 | 4룸~9룸 베트남풀빌라 17곳</title>
+  <meta name="description" content="호치민풀빌라 17곳을 한곳에. 4룸·5룸·6룸·7룸·8룸·9룸 호치민풀빌라와 붕따우풀빌라까지, 수영장·BBQ·노래방을 갖춘 베트남풀빌라를 비교하고 예약하세요.">
+  <meta name="keywords" content="호치민풀빌라, 베트남풀빌라, 4룸 호치민풀빌라, 5룸 호치민풀빌라, 6룸 호치민풀빌라, 7룸 호치민풀빌라, 8룸 호치민풀빌라, 9룸 호치민풀빌라, 4룸 붕따우풀빌라">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#00bfa5">
+  <link rel="icon" href="/favicon.png" type="image/x-icon">
+  <link rel="canonical" href="https://poolvillahcm.vercel.app/villa/villa.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="호치민풀빌라">
+  <meta property="og:title" content="호치민풀빌라 목록 | 베트남풀빌라 17곳">
+  <meta property="og:description" content="4룸~9룸 호치민풀빌라와 붕따우풀빌라를 한곳에서 비교·예약.">
+  <meta property="og:url" content="https://poolvillahcm.vercel.app/villa/villa.html">
+  <meta property="og:image" content="https://picsum.photos/seed/villa-list/900/650">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"홈","item":"https://poolvillahcm.vercel.app/"},
+    {"@type":"ListItem","position":2,"name":"호치민풀빌라 목록","item":"https://poolvillahcm.vercel.app/villa/villa.html"}]}
+  </script>
 </head>
-
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <a href="../index.html" class="logo">
-        호치민<span>풀빌라</span>
-      </a>
-
-      <div class="header-btns">
-        <a href="https://pf.kakao.com/_FXwxkG" class="btn-kakao">💬 Kakao</a>
+      <a href="../index.html" class="logo" aria-label="호치민풀빌라 홈">호치민<span>풀빌라</span></a>
+      <nav class="header-btns" aria-label="문의 채널">
+        <a href="https://pf.kakao.com/_FXwxkG" class="btn-kakao" target="_blank" rel="noopener">💬 Kakao</a>
         <a href="#" class="btn-naver">N Naver</a>
-      </div>
+      </nav>
     </div>
   </header>
 
   <section class="page-hero">
-    <h1>추천 풀빌라 목록</h1>
-    <p>
-        호치민, 하노이, 다낭, 푸꾸옥, 붕따우, 달랏의
-        프라이빗 풀빌라 정보를 한곳에서 확인하세요.
-    </br>
-        가족 여행, 단체 모임, 생일 파티, 바비큐 파티에
-        적합한 다양한 풀빌라를 소개합니다.
-    </p>
+    <h1>호치민풀빌라 목록</h1>
+    <p>호치민의 프라이빗 풀빌라를 한곳에서 확인하세요. 4룸부터 9룸까지, 가족 여행·단체 모임·생일 파티·BBQ 파티에 적합한 베트남풀빌라를 소개합니다.</p>
   </section>
 
-<section class="villa-filter-section">
-  <div class="container">
+  <section class="villa-filter-section" aria-label="지역 필터">
     <div class="villa-filter-buttons">
-      <button class="villa-filter-btn active" data-filter="all">Tất cả</button>
+      <button class="villa-filter-btn active" data-filter="all">전체</button>
       <button class="villa-filter-btn" data-filter="hcm">호치민</button>
-      <button class="villa-filter-btn" data-filter="hanoi">하노이</button>
-      <button class="villa-filter-btn" data-filter="danang">다낭</button>
-      <button class="villa-filter-btn" data-filter="phuquoc">푸꾸옥</button>
       <button class="villa-filter-btn" data-filter="vungtau">붕따우</button>
-      <button class="villa-filter-btn" data-filter="dalat">달랏</button>
     </div>
-  </div>
-</section>
+  </section>
 
-<main class="villas-section">
-  <h2 class="section-title">빌라 목록</h2>
-  <p class="section-subtitle">
-   기본적으로 모든 빌라가 표시됩니다. 원하시는 지역을 선택하여 적합한 빌라를 찾아보세요.
-  </p>
+  <main class="villas-section">
+    <h2 class="section-title">빌라 목록</h2>
+    <p class="section-subtitle">원하시는 지역을 선택해 적합한 호치민풀빌라를 찾아보세요.</p>
+    <div class="villas-grid" id="villaGrid">
 
-
-  
-  <div class="villas-grid" id="villaGrid">
-
-
-    <article class="villa-card" data-location="hcm">
-        <div class="villa-photos">
-            <span class="villa-badge new">HOT</span>
-            <img src="../picter/picter-villa/119-nguyenthidinh/gen-h-z7828535077979_d14c16c85d6747b677a606b1d545c333.jpg" class="active" alt="Villa 199">
-        </div>
+      <article class="villa-card" data-location="hcm">
+        <div class="villa-photos"><span class="villa-badge">HOT</span><img src="../picter/picter-villa/119/gen-h-z7828535077979_d14c16c85d6747b677a606b1d545c333.jpg" alt="빌라 199" loading="lazy"></div>
         <div class="villa-info">
-            <h3 class="villa-name">
-            빌라 199
-            </h3>
-            <div class="villa-rooms">
-            침실 6개 • 최대 15명
-            </div>
-            <p class="villa-desc">
-            호치민 2군 응우옌티딘에 위치한 프리미엄 풀빌라.
-            6개의 침실, 7개의 침대, 7개의 욕실을 갖추고 있으며,
-            모든 침실에 개별 욕실이 제공됩니다.
-            엘리베이터와 고급 인테리어를 갖춘 럭셔리 빌라입니다.
-            </p>
-            <div class="villa-amenities">
-            <span class="amenity-tag">호치민</span>
-            <span class="amenity-tag">프라이빗 수영장</span>
-            <span class="amenity-tag">엘리베이터</span>
-            </div>
-            <a href="villa-detail-199.html" class="villa-cta">
-            자세히 보기
-            </a>
+          <h3 class="villa-name">빌라 199</h3>
+          <div class="villa-rooms">침실 6개 • 침대 7개 • 욕실 7개</div>
+          <div class="villa-price">1박 2일 <b>$400</b> · 주말 <b>$500</b></div>
+          <p class="villa-desc">호치민 2군 응우옌티딘에 위치한 프리미엄 풀빌라. 1층+4개 층·엘리베이터, 6개 침실 모두 개별 욕실을 갖춘 럭셔리 빌라입니다.</p>
+          <div class="villa-amenities"><span class="amenity-tag">호치민</span><span class="amenity-tag">프라이빗 수영장</span><span class="amenity-tag">엘리베이터</span></div>
+          <a href="villa-detail-199.html" class="villa-cta">자세히 보기</a>
         </div>
-    </article>
+      </article>
 
-  
-    <article class="villa-card" data-location="hcm">
-        <div class="villa-photos">
-            <span class="villa-badge new">HOT</span>
-            <img src="../picter/picter-villa/villa-san-vuon-q2/gen-h-z7830981549943_0c44aa256402dd637c6defa034d581e2.jpg" class="active" alt="정원 빌라">
-        </div>
-
+      <article class="villa-card" data-location="hcm">
+        <div class="villa-photos"><span class="villa-badge">HOT</span><img src="../picter/picter-villa/villa-san-vuon-q2/gen-h-z7830981549943_0c44aa256402dd637c6defa034d581e2.jpg" alt="정원 빌라" loading="lazy"></div>
         <div class="villa-info">
-
-            <h3 class="villa-name">
-            정원 빌라
-            </h3>
-
-            <div class="villa-rooms">
-            침실 8개 • 욕실 7개
-            </div>
-
-            <p class="villa-desc">
-            호치민 2군 안카인에 위치한 프리미엄 정원 빌라.
-            8개의 침실과 7개의 욕실을 갖추고 있어
-            대규모 인원이 편안하게 이용할 수 있습니다.
-            현대적이고 고급스러운 디자인과
-            프리미엄 인테리어가 돋보이는 럭셔리 빌라입니다.
-            </p>
-
-            <div class="villa-amenities">
-            <span class="amenity-tag">호치민</span>
-            <span class="amenity-tag">정원 빌라</span>
-            <span class="amenity-tag">단체 모임</span>
-            </div>
-
-            <a href="villa-detail-sanvuon-q2.html" class="villa-cta">
-            자세히 보기
-            </a>
-
+          <h3 class="villa-name">정원 빌라</h3>
+          <div class="villa-rooms">침실 8개 • 침대 8개 • 욕실 7개</div>
+          <div class="villa-price">1박 2일 <b>$500</b></div>
+          <p class="villa-desc">호치민 2군 안카인의 프리미엄 정원 빌라. 8개 침실·7개 욕실, 현대적이고 동선이 좋은 대형 빌라로 단체 모임에 적합합니다.</p>
+          <div class="villa-amenities"><span class="amenity-tag">호치민</span><span class="amenity-tag">정원 빌라</span><span class="amenity-tag">단체 모임</span></div>
+          <a href="villa-detail-sanvuon-q2.html" class="villa-cta">자세히 보기</a>
         </div>
-    </article>
+      </article>
 
-
-    <article class="villa-card" data-location="hcm">
-        <div class="villa-photos">
-            <span class="villa-badge new">HOT</span>
-            <img src="../picter/picter-villa/villa-ruby09/gen-h-z7831005109634_b0abfd96f7136bc11cbeada784d98dd5.jpg" class="active" alt="VILLA RUBY 09">
-        </div>
-
+      <article class="villa-card" data-location="hcm">
+        <div class="villa-photos"><span class="villa-badge">HOT</span><img src="../picter/picter-villa/villa-ruby09/gen-h-z7831005109634_b0abfd96f7136bc11cbeada784d98dd5.jpg" alt="VILLA RUBY 09" loading="lazy"></div>
         <div class="villa-info">
-
-            <h3 class="villa-name">
-            VILLA RUBY 09
-            </h3>
-
-            <div class="villa-rooms">
-            침실 6개 • 욕실 7개
-            </div>
-
-            <p class="villa-desc">
-            호치민 투득시 타오미로이 주거단지에 위치한 프리미엄 빌라.
-            약 700㎡ 규모의 넓은 공간과 전용 엘리베이터,
-            프라이빗 노래방, 자쿠지, 스톤 사우나를 갖추고 있습니다.
-            고급 인테리어와 다양한 시설로 편안한 휴식을 제공합니다.
-            </p>
-
-            <div class="villa-amenities">
-            <span class="amenity-tag">호치민</span>
-            <span class="amenity-tag">자쿠지</span>
-            <span class="amenity-tag">사우나</span>
-            </div>
-
-            <a href="villa-ruby-09.html" class="villa-cta">
-            자세히 보기
-            </a>
-
+          <h3 class="villa-name">VILLA RUBY 09</h3>
+          <div class="villa-rooms">침실 6개 • 침대 6개 • 욕실 7개</div>
+          <div class="villa-price">1박 2일 <b>$400</b> · 주말 <b>$500</b></div>
+          <p class="villa-desc">투득시 하도 단지의 약 700㎡ 빌라. 전용 엘리베이터, 노래방, 자쿠지, 스톤 사우나를 갖춘 고급 빌라입니다.</p>
+          <div class="villa-amenities"><span class="amenity-tag">호치민</span><span class="amenity-tag">자쿠지</span><span class="amenity-tag">사우나</span></div>
+          <a href="villa-ruby-09.html" class="villa-cta">자세히 보기</a>
         </div>
-    </article>
+      </article>
 
-
-    <article class="villa-card" data-location="hcm">
-        <div class="villa-photos">
-            <span class="villa-badge new">HOT</span>
-            <img src="../picter/picter-villa/villa-san-vuon-2-q2/gen-h-z7830981570354_b876d10a0ee3b8e15f00661253c03765.jpg" class="active" alt="THẢO ĐIỀN VILLA">
-        </div>
-
+      <article class="villa-card" data-location="hcm">
+        <div class="villa-photos"><span class="villa-badge">HOT</span><img src="../picter/picter-villa/villa-thao-dien/z7924765457130_c06ae4aee316c7e5285efb00b51549c8.jpg" alt="정원 빌라 2" loading="lazy"></div>
         <div class="villa-info">
-
-            <h3 class="villa-name">
-            정원 빌라 2
-            </h3>
-
-            <div class="villa-rooms">
-            침실 7개 • 욕실 6개
-            </div>
-
-            <p class="villa-desc">
-            호치민 투득시 타오디엔에 위치한 프리미엄 풀빌라.
-            넓은 실사용 공간과 현대적인 다층 구조를 갖추고 있으며,
-            7개의 넓은 침실과 6개의 욕실이 마련되어 있습니다.
-            프라이빗 수영장과 전용 노래방 시설을 갖춘 럭셔리 빌라입니다.
-            </p>
-
-            <div class="villa-amenities">
-            <span class="amenity-tag">호치민</span>
-            <span class="amenity-tag">프라이빗 수영장</span>
-            <span class="amenity-tag">노래방</span>
-            </div>
-
-            <a href="thao-dien-villa.html" class="villa-cta">
-            자세히 보기
-            </a>
-
+          <h3 class="villa-name">타오디엔 빌라</h3>
+          <div class="villa-rooms">침실 7개 • 침대 7개 • 욕실 6개</div>
+          <div class="villa-price">1박 2일 <b>$400</b> · 주말 <b>$500</b></div>
+          <p class="villa-desc">타오디엔의 다층 프리미엄 풀빌라. 7개 침실, 프라이빗 수영장과 전용 노래방 시설을 갖춘 럭셔리 빌라입니다.</p>
+          <div class="villa-amenities"><span class="amenity-tag">호치민</span><span class="amenity-tag">프라이빗 수영장</span><span class="amenity-tag">노래방</span></div>
+          <a href="thao-dien-villa.html" class="villa-cta">자세히 보기</a>
         </div>
-    </article>
+      </article>
 
-
-    <article class="villa-card" data-location="hcm">
-        <div class="villa-photos">
-            <span class="villa-badge new">HOT</span>
-            <img src="../picter/picter-villa/villa-q2/gen-h-z7861172495777_909bdd37fd414c41fd281e4ebfb68eaf.jpg" class="active" alt="센트럴 빌라">
-        </div>
-
+      <article class="villa-card" data-location="hcm">
+        <div class="villa-photos"><span class="villa-badge">HOT</span><img src="../picter/picter-villa/villa-q2/gen-h-z7861172495777_909bdd37fd414c41fd281e4ebfb68eaf.jpg" alt="센트럴 빌라" loading="lazy"></div>
         <div class="villa-info">
-
-            <h3 class="villa-name">
-            센트럴 빌라
-            </h3>
-
-            <div class="villa-rooms">
-            침실 8개 • 욕실 7개
-            </div>
-
-            <p class="villa-desc">
-            호치민 2군에 위치한 프리미엄 빌라.
-            약 700㎡ 규모의 넓은 공간과
-            지하 1층, 지상 3층 구조를 갖추고 있습니다.
-            침실 8개, 침대 9개, 욕실 7개로
-            단체 모임과 가족 여행에 적합합니다.
-            </p>
-
-            <div class="villa-amenities">
-            <span class="amenity-tag">호치민</span>
-            <span class="amenity-tag">단체 모임</span>
-            <span class="amenity-tag">프리미엄 빌라</span>
-            </div>
-
-            <a href="central-villa.html" class="villa-cta">
-            자세히 보기
-            </a>
-
+          <h3 class="villa-name">센트럴 빌라</h3>
+          <div class="villa-rooms">침실 8개 • 침대 9개 • 욕실 7개</div>
+          <div class="villa-price">1박 2일 <b>$400</b> · 주말 <b>$500</b></div>
+          <p class="villa-desc">호치민 2군의 약 700㎡ 빌라. 지하1·지상3층, 8개 침실·9개 침대로 단체 모임과 가족 여행에 적합합니다.</p>
+          <div class="villa-amenities"><span class="amenity-tag">호치민</span><span class="amenity-tag">단체 모임</span><span class="amenity-tag">프리미엄</span></div>
+          <a href="central-villa.html" class="villa-cta">자세히 보기</a>
         </div>
-    </article>
+      </article>
 
-
-
-    <article class="villa-card" data-location="hcm">
-        <div class="villa-photos">
-            <span class="villa-badge new">HOT</span>
-            <img src="../picter/picter-villa/villa299/a.png" class="active" alt="VILLA 299">
-        </div>
-
+      <article class="villa-card" data-location="hcm">
+        <div class="villa-photos"><span class="villa-badge">HOT</span><img src="../picter/picter-villa/299/gen-h-z7861231029142_5ee765372e49a993ead4732c6c3b4bfc.jpg" alt="빌라 299" loading="lazy"></div>
         <div class="villa-info">
-
-            <h3 class="villa-name">
-            빌라 299
-            </h3>
-
-            <div class="villa-rooms">
-            침실 7개 • 욕실 7개
-            </div>
-
-            <p class="villa-desc">
-            호치민 안푸 지역에 위치한 프리미엄 풀빌라.
-            침실 7개, 침대 8개, 욕실 7개를 갖추고 있으며,
-            5개의 침실에는 개별 욕실이 제공됩니다.
-            당구대가 있는 넓은 거실과 전용 노래방,
-            루프탑 수영장을 갖춘 럭셔리 빌라입니다.
-            </p>
-
-            <div class="villa-amenities">
-            <span class="amenity-tag">호치민</span>
-            <span class="amenity-tag">루프탑 수영장</span>
-            <span class="amenity-tag">노래방</span>
-            </div>
-
-            <a href="villa-299.html" class="villa-cta">
-            자세히 보기
-            </a>
-
+          <h3 class="villa-name">빌라 299</h3>
+          <div class="villa-rooms">침실 7개 • 침대 8개 • 욕실 7개</div>
+          <div class="villa-price">1박 2일 <b>$400</b> · 주말 <b>$500</b></div>
+          <p class="villa-desc">안푸의 프리미엄 풀빌라. 당구대 거실, 전용 노래방, 루프탑 수영장(2x4m)을 갖춘 럭셔리 빌라입니다.</p>
+          <div class="villa-amenities"><span class="amenity-tag">호치민</span><span class="amenity-tag">루프탑 수영장</span><span class="amenity-tag">노래방</span></div>
+          <a href="villa-detail-299.html" class="villa-cta">자세히 보기</a>
         </div>
-    </article>
+      </article>
 
+      <article class="villa-card" data-location="hcm">
+        <div class="villa-photos"><span class="villa-badge">HOT</span><img src="../picter/picter-villa/villa-d2-center/IMG_6244.JPG" loading="lazy"></div>
+        <div class="villa-info">
+          <h3 class="villa-name">D2 CENTER POOL VILLA</h3>
+          <div class="villa-rooms">침실 6개 • 침대 6개 • 욕실 5개</div>
+          <div class="villa-price">1박 2일 <b>$430</b> · 주말 <b>$530</b></div>
+          <p class="villa-desc">2군 중심의 약 700㎡ 풀빌라. 노래방·당구대·가든 BBQ·수영장·자쿠지를 갖췄으며 1군까지 약 7분, 메트로역과 가깝습니다.</p>
+          <div class="villa-amenities"><span class="amenity-tag">호치민</span><span class="amenity-tag">자쿠지</span><span class="amenity-tag">BBQ</span></div>
+          <a href="villa-detail-d2-center.html" class="villa-cta">자세히 보기</a>
+        </div>
+      </article>
 
+      <article class="villa-card" data-location="hcm">
+        <div class="villa-photos"><span class="villa-badge">NEW</span><img src="../picter/picter-villa/villa-luxe-verde/IMG_4611.JPEG" alt="LUXE VERDE VILLA" loading="lazy"></div>
+        <div class="villa-info">
+          <h3 class="villa-name">LUXE VERDE VILLA</h3>
+          <div class="villa-rooms">침실 7개 • 침대 7개 • 욕실 6개</div>
+          <div class="villa-price">1박 2일 <b>$430</b> · 주말 <b>$480</b></div>
+          <p class="villa-desc">타인미러이의 리조트형 빌라. 루프탑 수영장, 방음 노래방·당구대·BBQ, 대형 공원이 보이는 입지를 갖췄습니다.</p>
+          <div class="villa-amenities"><span class="amenity-tag">호치민</span><span class="amenity-tag">루프탑 수영장</span><span class="amenity-tag">노래방</span></div>
+          <a href="villa-luxe-verde.html" class="villa-cta">자세히 보기</a>
+        </div>
+      </article>
 
+      <article class="villa-card" data-location="hcm">
+        <div class="villa-photos"><span class="villa-badge">NEW</span><img src="../picter/picter-villa/villa-diamond-8br/DSC02773-night.jpg" alt="VILLA DIAMOND" loading="lazy"></div>
+        <div class="villa-info">
+          <h3 class="villa-name">VILLA DIAMOND</h3>
+          <div class="villa-rooms">침실 8개 • 침대 9개 • 욕실 5개</div>
+          <div class="villa-price">1박 2일 <b>$430</b> · 주말 <b>$530</b></div>
+          <p class="villa-desc">네오클래식 스타일 빌라. 8개 침실, 층별 노래방·로비 당구대·프라이빗 수영장·넓은 가든 BBQ를 갖춘 빌라입니다.</p>
+          <div class="villa-amenities"><span class="amenity-tag">호치민</span><span class="amenity-tag">당구대</span><span class="amenity-tag">BBQ</span></div>
+          <a href="villa-diamond.html" class="villa-cta">자세히 보기</a>
+        </div>
+      </article>
 
+      <article class="villa-card" data-location="hcm">
+        <div class="villa-photos"><span class="villa-badge">NEW</span><img src="../picter/picter-villa/villa-harmony/IMG_6512.JPG" alt="VILLA HARMONY" loading="lazy"></div>
+        <div class="villa-info">
+          <h3 class="villa-name">VILLA HARMONY</h3>
+          <div class="villa-rooms">침실 9개 • 침대 9개 • 욕실 9개</div>
+          <div class="villa-price">1박 2일 <b>$530</b> · 주말 <b>$630</b></div>
+          <p class="villa-desc">풀럭셔리 네오클래식 빌라. 9개 마스터룸(개별 욕실), 수영장·방음 노래방·당구대·BBQ·피아노를 갖췄습니다.</p>
+          <div class="villa-amenities"><span class="amenity-tag">호치민</span><span class="amenity-tag">피아노</span><span class="amenity-tag">럭셔리</span></div>
+          <a href="villa-harmony.html" class="villa-cta">자세히 보기</a>
+        </div>
+      </article>
 
+      <article class="villa-card" data-location="hcm">
+        <div class="villa-photos"><span class="villa-badge">NEW</span><img src="../picter/picter-villa/villa-garden-oais/1 JBG07166-HDR.jpg" alt="GARDEN OASIS POOL VILLA" loading="lazy"></div>
+        <div class="villa-info">
+          <h3 class="villa-name">GARDEN OASIS POOL VILLA</h3>
+          <div class="villa-rooms">침실 10개 • 침대 10개 • 욕실 7개</div>
+          <div class="villa-price">1박 2일 <b>$550</b> · 주말 <b>$650</b></div>
+          <p class="villa-desc">사이공 미스터리의 대형 풀빌라. 10개 침실, 헬스장·노래방·당구대·대형 수영장·엘리베이터를 갖춘 빌라입니다.</p>
+          <div class="villa-amenities"><span class="amenity-tag">호치민</span><span class="amenity-tag">헬스장</span><span class="amenity-tag">엘리베이터</span></div>
+          <a href="villa-garden-oasis.html" class="villa-cta">자세히 보기</a>
+        </div>
+      </article>
 
+      <article class="villa-card" data-location="hcm">
+        <div class="villa-photos"><span class="villa-badge">NEW</span><img src="../picter/picter-villa/villa-paradise/1-(75).jpg" alt="VILLA PARADISE" loading="lazy"></div>
+        <div class="villa-info">
+          <h3 class="villa-name">VILLA PARADISE</h3>
+          <div class="villa-rooms">침실 6개 • 침대 8개 • 욕실 5개</div>
+          <div class="villa-price">1박 2일 <b>$430</b> · 주말 <b>$530</b></div>
+          <p class="villa-desc">안카인의 리조트형 풀빌라. 6개 침실, 노래방·당구대·가든 BBQ, 넓은 수영장과 현대적 디자인을 갖췄습니다.</p>
+          <div class="villa-amenities"><span class="amenity-tag">호치민</span><span class="amenity-tag">노래방</span><span class="amenity-tag">BBQ</span></div>
+          <a href="villa-paradise.html" class="villa-cta">자세히 보기</a>
+        </div>
+      </article>
 
+      <article class="villa-card" data-location="hcm">
+        <div class="villa-photos"><span class="villa-badge">NEW</span><img src="../picter/picter-villa/villa-mia/IMG_3297.JPG" alt="MIA RIVERSIDE VILLA" loading="lazy"></div>
+        <div class="villa-info">
+          <h3 class="villa-name">MIA RIVERSIDE VILLA</h3>
+          <div class="villa-rooms">침실 9개 • 침대 9개 • 욕실 6개</div>
+          <div class="villa-price">1박 2일 <b>$530</b> · 주말 <b>$630</b></div>
+          <p class="villa-desc">쭝선 단지의 리버사이드 빌라. 루프탑 인피니티풀, 노래방·당구대·BBQ·사우나, 강·공원 전망을 갖췄습니다.</p>
+          <div class="villa-amenities"><span class="amenity-tag">호치민</span><span class="amenity-tag">인피니티풀</span><span class="amenity-tag">사우나</span></div>
+          <a href="villa-mia-riverside.html" class="villa-cta">자세히 보기</a>
+        </div>
+      </article>
 
+      <article class="villa-card" data-location="hcm">
+        <div class="villa-photos"><span class="villa-badge">NEW</span><img src="../picter/picter-villa/villa-benthanh/JBG03774-HDR.jpg" alt="BEN THANH POOL VILLA" loading="lazy"></div>
+        <div class="villa-info">
+          <h3 class="villa-name">BEN THANH POOL VILLA</h3>
+          <div class="villa-rooms">침실 6개 • 침대 7개 • 욕실 6개</div>
+          <div class="villa-price">1박 2일 <b>$530</b> · 주말 <b>$630</b></div>
+          <p class="villa-desc">호치민 1군 중심의 풀빌라. 6개 침실, 1층 노래방·대형 수영장·사우나, 현대적이고 세련된 인테리어를 갖췄습니다.</p>
+          <div class="villa-amenities"><span class="amenity-tag">호치민</span><span class="amenity-tag">1군</span><span class="amenity-tag">사우나</span></div>
+          <a href="villa-ben-thanh.html" class="villa-cta">자세히 보기</a>
+        </div>
+      </article>
 
+      <article class="villa-card" data-location="hcm">
+        <div class="villa-photos"><span class="villa-badge">NEW</span><img src="../picter/picter-villa/villa-sunrise-q7/1.png" alt="SUNRISE VILLA Q7" loading="lazy"></div>
+        <div class="villa-info">
+          <h3 class="villa-name">SUNRISE VILLA Q7</h3>
+          <div class="villa-rooms">침실 9개 • 침대 11개 • 욕실 8개</div>
+          <div class="villa-price">1박 2일 <b>$530</b> · 주말 <b>$630</b></div>
+          <p class="villa-desc">7군 힘람의 빌라. 9개 침실·11개 침대, 자쿠지·건식/습식 사우나·엘리베이터·BBQ·당구대를 갖춘 빌라입니다.</p>
+          <div class="villa-amenities"><span class="amenity-tag">호치민</span><span class="amenity-tag">자쿠지</span><span class="amenity-tag">사우나</span></div>
+          <a href="villa-sunrise-q7.html" class="villa-cta">자세히 보기</a>
+        </div>
+      </article>
 
+      <article class="villa-card" data-location="hcm">
+        <div class="villa-photos"><span class="villa-badge">NEW</span><img src="../picter/picter-villa/villa-luna/1-(1).jpg" alt="LUNA CASA VILLA" loading="lazy"></div>
+        <div class="villa-info">
+          <h3 class="villa-name">LUNA CASA VILLA</h3>
+          <div class="villa-rooms">침실 9개 • 침대 10개 • 욕실 6개</div>
+          <div class="villa-price">1박 2일 <b>$520</b> · 주말 <b>$620</b></div>
+          <p class="villa-desc">7군 힘람의 풀럭셔리 빌라. 노래방·당구대·BBQ·사우나·자쿠지와 피아노 스튜디오를 갖춘 빌라입니다.</p>
+          <div class="villa-amenities"><span class="amenity-tag">호치민</span><span class="amenity-tag">피아노</span><span class="amenity-tag">자쿠지</span></div>
+          <a href="villa-luna-casa.html" class="villa-cta">자세히 보기</a>
+        </div>
+      </article>
 
+      <article class="villa-card" data-location="hcm">
+        <div class="villa-photos"><span class="villa-badge">NEW</span><img src="../picter/picter-villa/villa-sanorita/PES08904.1.jpeg" alt="SANORITA POOL VILLA" loading="lazy"></div>
+        <div class="villa-info">
+          <h3 class="villa-name">SANORITA POOL VILLA</h3>
+          <div class="villa-rooms">침실 9개 • 침대 10개 • 욕실 6개</div>
+          <div class="villa-price">1박 2일 <b>$480</b> · 주말 <b>$580</b></div>
+          <p class="villa-desc">7군 힘람의 풀빌라. 9개 침실, 노래방·당구대·BBQ·수영장을 갖춘 럭셔리 인테리어의 빌라입니다.</p>
+          <div class="villa-amenities"><span class="amenity-tag">호치민</span><span class="amenity-tag">수영장</span><span class="amenity-tag">노래방</span></div>
+          <a href="villa-sanorita.html" class="villa-cta">자세히 보기</a>
+        </div>
+      </article>
 
-  </div>
-
-  <div class="section-more">
-    <button id="loadMoreVillas" class="more-btn" type="button">
-      빌라 더 보기 →
-    </button>
-  </div>
-</main>
+    </div>
+    <p class="villa-empty" id="villaEmpty" hidden>해당 지역의 빌라는 준비 중입니다. 다른 지역을 선택해 주세요.</p>
+    <div class="section-more">
+      <button id="loadMoreVillas" class="more-btn" type="button">빌라 더 보기 →</button>
+    </div>
   </main>
 
-  <section class="cta-section">
-    <h2>딱 맞는 빌라를 찾고 계신가요?</h2>
-
-    <p>
-     지금 바로 문의하시면 신속하게 상담해 드립니다.
-    </p>
-
+  <section class="cta-section" aria-label="상담 문의">
+    <h2>딱 맞는 풀빌라를 찾고 계신가요?</h2>
+    <p>인원, 날짜, 원하는 지역을 알려주시면 조건에 맞는 호치민풀빌라를 빠르게 추천해 드립니다.</p>
     <div class="cta-buttons">
-      <a href="https://pf.kakao.com/_FXwxkG" class="cta-kakao">
-        💬 KakaoTalk
-      </a>
-
-      <a href="#" class="cta-naver">
-        N Naver Cafe
-      </a>
+      <a href="https://pf.kakao.com/_FXwxkG" class="cta-kakao" target="_blank" rel="noopener">💬 KakaoTalk</a>
+      <a href="https://cafe.naver.com/77777a" class="cta-naver">N Naver Cafe</a>
     </div>
   </section>
-
   <footer class="site-footer">
-    <p>
-      <strong>호치민풀빌라</strong>
-    </p>
-
-    <p>
-     <p>
-      호치민 풀빌라 • 하노이 • 다낭 • 푸꾸옥
-     </p>
-    </p>
-
-    <p>
-      © 2026 All Rights Reserved.
-    </p>
+    <p><strong>호치민풀빌라</strong></p>
+    <p>호치민 풀빌라 • 1군 • 2군 • 7군 • 투득 • 붕따우</p>
+    <p>© 2026 호치민풀빌라. All Rights Reserved.</p>
   </footer>
 
-  <a href="https://pf.kakao.com/_FXwxkG" class="float-kakao">
-    💬 Kakao
-  </a>
-<div class="modal-overlay">
+  <a href="https://pf.kakao.com/_FXwxkG" class="float-kakao" target="_blank" rel="noopener">💬 Kakao</a>
 
-    <div class="modal-inner">
-
-        <button class="modal-close">
-            ×
-        </button>
-
-        <img src="" alt="">
-
-    </div>
-
-</div>
-
-<script src="../js/main.js"></script>
-<script src="../js/home.js"></script>
+  <script src="../js/main.js"></script>
+  
 </body>
 </html>

@@ -1,102 +1,43 @@
 /* ==============================
-   MAIN.JS
-   Website: 호치민풀빌라
+   MAIN.JS  —  호치민풀빌라 (dùng chung mọi trang)
 ============================== */
 
 document.addEventListener("DOMContentLoaded", function () {
   initHeroSlider();
-  initRandomHomeItems();
   initVillaPhotoSlider();
   initVillaTabs();
   initImageModal();
   initSmoothScroll();
+  initScrollReveal();
+  initVillaFilterLoadMore();
 });
 
-/* ==============================
-   HERO SLIDER
-============================== */
-
+/* ============ HERO SLIDER ============ */
 function initHeroSlider() {
   const slides = document.querySelectorAll(".hero-slide");
+  if (slides.length < 2) return;
 
-  if (!slides.length) return;
-
-  let currentIndex = 0;
-
+  let current = 0;
   setInterval(function () {
-    slides[currentIndex].classList.remove("active");
-
-    currentIndex = (currentIndex + 1) % slides.length;
-
-    slides[currentIndex].classList.add("active");
+    slides[current].classList.remove("active");
+    current = (current + 1) % slides.length;
+    slides[current].classList.add("active");
   }, 4000);
 }
 
-/* ==============================
-   HOME RANDOM ITEMS
-   Villa nổi bật: tối đa 6
-   Blog: tối đa 4
-============================== */
-
-function initRandomHomeItems() {
-  limitRandomItems("#featuredVillaGrid", ".villa-card", 6);
-  limitRandomItems("#latestBlogGrid", ".blog-card", 4);
-}
-
-function limitRandomItems(containerSelector, itemSelector, limit) {
-  const container = document.querySelector(containerSelector);
-
-  if (!container) return;
-
-  const items = Array.from(container.querySelectorAll(itemSelector));
-
-  if (items.length <= limit) return;
-
-  shuffleArray(items);
-
-  container.innerHTML = "";
-
-  items.slice(0, limit).forEach(function (item) {
-    container.appendChild(item);
-  });
-}
-
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const randomIndex = Math.floor(Math.random() * (i + 1));
-
-    [array[i], array[randomIndex]] = [array[randomIndex], array[i]];
-  }
-
-  return array;
-}
-
-/* ==============================
-   VILLA CARD PHOTO SLIDER
-============================== */
-
+/* ============ VILLA CARD PHOTO SLIDER (dot) ============ */
 function initVillaPhotoSlider() {
-  const villaCards = document.querySelectorAll(".villa-card");
-
-  villaCards.forEach(function (card) {
+  document.querySelectorAll(".villa-card").forEach(function (card) {
     const photos = card.querySelectorAll(".villa-photos img");
     const dots = card.querySelectorAll(".dot");
-
     if (!photos.length || !dots.length) return;
 
     dots.forEach(function (dot, index) {
       dot.addEventListener("click", function (event) {
         event.preventDefault();
         event.stopPropagation();
-
-        photos.forEach(function (photo) {
-          photo.classList.remove("active");
-        });
-
-        dots.forEach(function (item) {
-          item.classList.remove("active");
-        });
-
+        photos.forEach(function (p) { p.classList.remove("active"); });
+        dots.forEach(function (d) { d.classList.remove("active"); });
         photos[index].classList.add("active");
         dot.classList.add("active");
       });
@@ -104,86 +45,45 @@ function initVillaPhotoSlider() {
   });
 }
 
-/* ==============================
-   VILLA TABS
-============================== */
-
+/* ============ TABS ============ */
 function initVillaTabs() {
   const tabButtons = document.querySelectorAll(".tab-btn");
   const tabContents = document.querySelectorAll(".villa-tab-content");
-
   if (!tabButtons.length || !tabContents.length) return;
 
   tabButtons.forEach(function (button) {
     button.addEventListener("click", function () {
       const target = button.dataset.tab;
-
       if (!target) return;
-
-      tabButtons.forEach(function (btn) {
-        btn.classList.remove("active");
-      });
-
-      tabContents.forEach(function (content) {
-        content.classList.remove("active");
-      });
-
+      tabButtons.forEach(function (b) { b.classList.remove("active"); });
+      tabContents.forEach(function (c) { c.classList.remove("active"); });
       button.classList.add("active");
-
-      const activeContent = document.getElementById(target);
-
-      if (activeContent) {
-        activeContent.classList.add("active");
-      }
+      const active = document.getElementById(target);
+      if (active) active.classList.add("active");
     });
   });
 }
 
-/* ==============================
-   IMAGE MODAL
-============================== */
-
+/* ============ IMAGE MODAL ============ */
 function initImageModal() {
   const modal = document.querySelector(".modal-overlay");
   const modalImage = document.querySelector(".modal-inner img");
   const modalClose = document.querySelector(".modal-close");
-
   if (!modal || !modalImage || !modalClose) return;
 
-  const images = document.querySelectorAll(
-    ".villa-photos img, .detail-main-image, .blog-card img"
-  );
-
+  const images = document.querySelectorAll(".detail-main-image, .detail-gallery img");
   if (!images.length) return;
 
   images.forEach(function (image) {
     image.addEventListener("click", function (event) {
-      const imageSrc = image.getAttribute("src");
-      const imageAlt = image.getAttribute("alt") || "Villa image";
-
-      if (!imageSrc) return;
-
+      const src = image.getAttribute("src");
+      if (!src) return;
       event.preventDefault();
-
-      modalImage.setAttribute("src", imageSrc);
-      modalImage.setAttribute("alt", imageAlt);
+      modalImage.setAttribute("src", src);
+      modalImage.setAttribute("alt", image.getAttribute("alt") || "Villa image");
       modal.classList.add("open");
       document.body.style.overflow = "hidden";
     });
-  });
-
-  modalClose.addEventListener("click", closeModal);
-
-  modal.addEventListener("click", function (event) {
-    if (event.target === modal) {
-      closeModal();
-    }
-  });
-
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-      closeModal();
-    }
   });
 
   function closeModal() {
@@ -191,81 +91,58 @@ function initImageModal() {
     modalImage.setAttribute("src", "");
     document.body.style.overflow = "";
   }
+
+  modalClose.addEventListener("click", closeModal);
+  modal.addEventListener("click", function (e) { if (e.target === modal) closeModal(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeModal(); });
 }
 
-/* ==============================
-   SMOOTH SCROLL
-============================== */
-
+/* ============ SMOOTH SCROLL ============ */
 function initSmoothScroll() {
-  const links = document.querySelectorAll('a[href^="#"]');
-
-  links.forEach(function (link) {
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener("click", function (event) {
-      const targetId = link.getAttribute("href");
-
-      if (!targetId || targetId === "#") return;
-
-      const targetElement = document.querySelector(targetId);
-
-      if (!targetElement) return;
-
+      const id = link.getAttribute("href");
+      if (!id || id === "#") return;
+      const el = document.querySelector(id);
+      if (!el) return;
       event.preventDefault();
-
-      targetElement.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
 }
 
-/* ==============================
-   SCROLL REVEAL ANIMATION
-============================== */
-
-document.addEventListener("DOMContentLoaded", function () {
-  initScrollReveal();
-});
-
+/* ============ SCROLL REVEAL ============ */
 function initScrollReveal() {
-  const revealItems = document.querySelectorAll(
+  const items = document.querySelectorAll(
     ".villa-card, .blog-card, .feature-item, .detail-text, .detail-list li, .faq-item, .room-option"
   );
+  if (!items.length) return;
 
-  if (!revealItems.length) return;
+  items.forEach(function (item) { item.classList.add("reveal"); });
 
-  revealItems.forEach(function (item) {
-    item.classList.add("reveal");
-  });
+  if (!("IntersectionObserver" in window)) {
+    items.forEach(function (item) { item.classList.add("active"); });
+    return;
+  }
 
-  const observer = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.12
-    }
-  );
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
 
-  revealItems.forEach(function (item) {
-    observer.observe(item);
-  });
+  items.forEach(function (item) { observer.observe(item); });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  initVillaFilterLoadMore();
-});
-
+/* ============ FILTER + LOAD MORE (목록 페이지) ============ */
 function initVillaFilterLoadMore() {
   const filterButtons = document.querySelectorAll(".villa-filter-btn");
-  const villaCards = Array.from(document.querySelectorAll("#villaGrid .villa-card"));
+  const villaCards = Array.prototype.slice.call(document.querySelectorAll("#villaGrid .villa-card"));
   const loadMoreBtn = document.getElementById("loadMoreVillas");
+  const emptyMsg = document.getElementById("villaEmpty");
 
   if (!filterButtons.length || !villaCards.length || !loadMoreBtn) return;
 
@@ -274,42 +151,25 @@ function initVillaFilterLoadMore() {
   let visibleCount = perPage;
 
   function getFilteredCards() {
-    if (currentFilter === "all") {
-      return villaCards;
-    }
-
-    return villaCards.filter(function (card) {
-      return card.dataset.location === currentFilter;
-    });
+    if (currentFilter === "all") return villaCards;
+    return villaCards.filter(function (card) { return card.dataset.location === currentFilter; });
   }
 
   function renderCards() {
-    const filteredCards = getFilteredCards();
+    const filtered = getFilteredCards();
 
-    villaCards.forEach(function (card) {
-      card.style.display = "none";
-    });
+    villaCards.forEach(function (card) { card.style.display = "none"; });
+    filtered.slice(0, visibleCount).forEach(function (card) { card.style.display = ""; });
 
-    filteredCards.slice(0, visibleCount).forEach(function (card) {
-      card.style.display = "";
-    });
-
-    if (filteredCards.length > visibleCount) {
-      loadMoreBtn.style.display = "inline-flex";
-    } else {
-      loadMoreBtn.style.display = "none";
-    }
+    if (emptyMsg) emptyMsg.hidden = filtered.length !== 0;
+    loadMoreBtn.style.display = filtered.length > visibleCount ? "inline-flex" : "none";
   }
 
   filterButtons.forEach(function (button) {
     button.addEventListener("click", function () {
       currentFilter = button.dataset.filter;
       visibleCount = perPage;
-
-      filterButtons.forEach(function (btn) {
-        btn.classList.remove("active");
-      });
-
+      filterButtons.forEach(function (b) { b.classList.remove("active"); });
       button.classList.add("active");
       renderCards();
     });

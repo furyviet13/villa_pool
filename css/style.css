@@ -1,1591 +1,287 @@
-/* ==============================
-   호치민풀빌라 - Common CSS
-   File path: css/style.css
-============================== */
-
-:root {
-  --primary: #00bfa5;
-  --primary-dark: #00897b;
-  --primary-light: #e0f2f1;
-  --kakao: #fee500;
-  --naver: #03c75a;
-
-  --white: #ffffff;
-  --light: #f8f9fa;
-  --gray: #6c757d;
-  --border: #e9ecef;
-  --dark: #1a1a2e;
-  --text: #333333;
-
-  --radius: 16px;
-  --shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  --shadow-hover: 0 10px 32px rgba(0, 0, 0, 0.15);
-
-  --container: 1200px;
-  --mobile-container: 480px;
-}
-
-/* RESET */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: "Noto Sans KR", Arial, sans-serif;
-  color: var(--text);
-  background: var(--white);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-ul {
-  list-style: none;
-}
-
-button,
-input,
-select,
-textarea {
-  font: inherit;
-}
-
-button {
-  border: none;
-  cursor: pointer;
-}
-
-/* COMMON */
-.container {
-  width: min(100% - 32px, var(--container));
-  margin: 0 auto;
-}
-
-.section {
-  padding: 60px 20px;
-}
-
-.section-title {
-  font-family: "Jua", sans-serif;
-  font-size: clamp(24px, 4vw, 36px);
-  text-align: center;
-  color: var(--dark);
-  margin-bottom: 8px;
-}
-
-.section-subtitle {
-  text-align: center;
-  color: var(--gray);
-  margin-bottom: 44px;
-  font-size: 15px;
-}
-
-/* HEADER */
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-  padding: 0 20px;
-}
-
-.header-inner {
-  max-width: var(--container);
-  height: 60px;
-  margin: 0 auto;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-    font-family: "Jua", sans-serif;
-    font-size: 28px;
-    font-weight: 700;
-
-    background: linear-gradient(
-        90deg,
-        #00bfa5,
-        #03c75a,
-        #00bfa5,
-        #00c2ff,
-        #00bfa5
-    );
-
-    background-size: 400% 400%;
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    animation:
-        logoGradient 6s linear infinite,
-        logoWave 2.5s ease-in-out infinite;
-
-    display: inline-block;
-}
-
-.logo span {
-    background: linear-gradient(
-        90deg,
-        #ff9800,
-        #ff5722,
-        #ff9800
-    );
-
-    background-size: 300% 300%;
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    animation: logoGradient 4s linear infinite;
-}
-
-@keyframes logoGradient {
-
-    0%{
-        background-position:0% 50%;
-    }
-
-    50%{
-        background-position:100% 50%;
-    }
-
-    100%{
-        background-position:0% 50%;
-    }
-
-}
-
-@keyframes logoWave {
-
-    0%{
-        transform: skewX(0deg);
-    }
-
-    25%{
-        transform: skewX(-3deg);
-    }
-
-    50%{
-        transform: skewX(0deg);
-    }
-
-    75%{
-        transform: skewX(3deg);
-    }
-
-    100%{
-        transform: skewX(0deg);
-    }
-
-}
-
-.logo:hover{
-    transform:scale(1.05);
-    transition:.3s;
-}
-
-
-.header-btns {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.btn-kakao,
-.btn-naver {
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 700;
-  white-space: nowrap;
-  transition: 0.25s ease;
-}
-
-.btn-kakao {
-  background: var(--kakao);
-  color: #000000;
-}
-
-.btn-naver {
-  background: var(--naver);
-  color: var(--white);
-}
-
-.btn-kakao:hover,
-.btn-naver:hover {
-  transform: scale(1.05);
-}
-
-/* HERO */
-.hero {
-  position: relative;
-  height: 100vh;
-  min-height: 600px;
-  margin-top: 60px;
-  overflow: hidden;
-}
-
-.hero-slider,
-.hero-slide {
-  width: 100%;
-  height: 100%;
-}
-
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 1.2s ease;
-}
-
-.hero-slide.active {
-  opacity: 1;
-}
-
-.hero-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.2),
-    rgba(0, 0, 0, 0.65)
-  );
-}
-
-.hero-content {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 3;
-
-  text-align: center;
-  color: var(--white);
-  padding: 40px 20px 60px;
-}
-
-.hero-badge {
-  display: inline-block;
-  background: var(--primary);
-  color: var(--white);
-  padding: 6px 16px;
-  border-radius: 20px;
-
-  font-size: 13px;
-  font-weight: 700;
-  margin-bottom: 16px;
-  animation: pulse 2s infinite;
-}
-
-.hero-title {
-  font-family: "Jua", sans-serif;
-  font-size: clamp(28px, 6vw, 56px);
-  line-height: 1.2;
-  margin-bottom: 12px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.hero-subtitle {
-  font-size: clamp(14px, 3vw, 18px);
-  opacity: 0.9;
-  margin-bottom: 28px;
-}
-
-.hero-cta {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.cta-main,
-.cta-sub {
-  padding: 14px 30px;
-  border-radius: 30px;
-  font-size: 16px;
-  font-weight: 700;
-  transition: 0.25s ease;
-}
-
-.cta-main {
-  background: var(--kakao);
-  color: #000000;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
-.cta-sub {
-  background: rgba(255, 255, 255, 0.2);
-  color: var(--white);
-  border: 2px solid var(--white);
-  backdrop-filter: blur(5px);
-}
-
-.cta-main:hover,
-.cta-sub:hover {
-  transform: translateY(-2px);
-}
-
-/* TABS */
-.section-tabs {
-  position: sticky;
-  top: 60px;
-  z-index: 100;
-  background: var(--white);
-  border-bottom: 2px solid #eeeeee;
-}
-
-.tabs-inner {
-  max-width: var(--container);
-  margin: 0 auto;
-  display: flex;
-}
-
-.tab-btn {
-  flex: 1;
-  padding: 16px;
-  background: transparent;
-
-  font-family: "Jua", sans-serif;
-  font-size: 18px;
-  color: var(--gray);
-
-  border-bottom: 3px solid transparent;
-  margin-bottom: -2px;
-  transition: 0.3s ease;
-}
-
-.tab-btn.active {
-  color: var(--primary-dark);
-  border-bottom-color: var(--primary);
-}
-
-/* FEATURES */
-.features {
-  background: var(--primary-light);
-  padding: 40px 20px;
-}
-
-.features-grid {
-  max-width: 900px;
-  margin: 0 auto;
-
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 20px;
-  text-align: center;
-}
-
-.feature-item {
-  background: var(--white);
-  border-radius: var(--radius);
-  padding: 20px 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-}
-
-.feature-icon {
-  font-size: 32px;
-  margin-bottom: 8px;
-}
-
-.feature-name {
-  font-family: "Jua", sans-serif;
-  font-size: 15px;
-  color: var(--primary-dark);
-}
-
-/* VILLA SECTION */
-.villas-section {
-  background: #f5f5f5;
-  padding: 0 0 60px;
-}
-
-.villa-tab-content {
-  display: none;
-}
-
-.villa-tab-content.active {
-  display: block;
-}
-
-.villas-grid{
-    max-width:1200px;
-    margin:0 auto;
-
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:24px;
-
-    padding:24px 16px 40px;
-}
-
-.villa-card {
-  position: relative;
-  display: block;
-  width: 100%;
-
-  background: var(--white);
-  border: 1px solid #e8e8e8;
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: 0.25s ease;
-}
-
-.villa-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-hover);
-}
-
-.villa-photos {
-  position: relative;
-  width: 100%;
-  height: 220px;
-  background: #eeeeee;
-  overflow: hidden;
-}
-
-.villa-photos img {
-  position: absolute;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.villa-photos img.active {
-  opacity: 1;
-}
-
-.photo-dots {
-  position: absolute;
-  left: 50%;
-  bottom: 8px;
-  z-index: 2;
-
-  display: flex;
-  gap: 5px;
-  transform: translateX(-50%);
-}
-
-.dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
-  transition: 0.3s ease;
-}
-
-.dot.active {
-  background: var(--white);
-}
-
-.villa-badge {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 2;
-
-  background: var(--primary);
-  color: var(--white);
-  padding: 3px 9px;
-  border-radius: 10px;
-
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.villa-badge.new {
-  background: #ff6b35;
-}
-
-.villa-info {
-  padding: 16px;
-}
-
-.villa-name {
-  font-family: "Jua", sans-serif;
-  font-size: 18px;
-  color: var(--dark);
-  margin-bottom: 4px;
-}
-
-.villa-rooms {
-  color: var(--primary-dark);
-  font-size: 13px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.villa-desc {
-  font-size: 13px;
-  color: var(--gray);
-  line-height: 1.5;
-  margin-bottom: 12px;
-}
-
-.villa-amenities {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 14px;
-}
-
-.amenity-tag {
-  background: var(--primary-light);
-  color: var(--primary-dark);
-  padding: 3px 8px;
-  border-radius: 20px;
-
-  font-size: 11px;
-  font-weight: 500;
-}
-
-.villa-cta {
-  display: block;
-  width: 100%;
-  background: var(--primary);
-  color: var(--white);
-  text-align: center;
-
-  padding: 12px;
-  border-radius: 10px;
-
-  font-size: 15px;
-  font-weight: 700;
-  transition: 0.25s ease;
-}
-
-.villa-cta:hover {
-  background: var(--primary-dark);
-}
-
-/* SPECIAL ROOM OPTIONS */
-.room-options {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
-  margin: 10px 0;
-}
-
-.room-option {
-  background: var(--light);
-  border-radius: 8px;
-  padding: 8px 4px;
-  text-align: center;
-}
-
-.room-option-rooms {
-  font-family: "Jua", sans-serif;
-  font-size: 13px;
-  color: var(--primary-dark);
-}
-
-.room-option-price {
-  font-size: 10px;
-  color: var(--gray);
-  margin-top: 2px;
-}
-
-.villa-card.y8-special {
-  border: 2px solid var(--primary);
-}
-
-/* DETAIL PAGE */
-.detail-section {
-  background: var(--light);
-  padding: 90px 20px 60px;
-}
-
-.detail-wrap {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.detail-card {
-  background: var(--white);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-
-.detail-main-image {
-  width: 100%;
-  height: 420px;
-  object-fit: cover;
-}
-
-.detail-body {
-  padding: 24px;
-}
-
-.detail-title {
-  font-family: "Jua", sans-serif;
-  font-size: clamp(24px, 4vw, 36px);
-  color: var(--dark);
-  margin-bottom: 8px;
-}
-
-.detail-meta {
-  color: var(--primary-dark);
-  font-weight: 700;
-  margin-bottom: 16px;
-}
-
-.detail-text {
-  color: var(--text);
-  margin-bottom: 24px;
-}
-
-.detail-list {
-  display: grid;
-  gap: 10px;
-  margin-bottom: 24px;
-}
-
-.detail-list li {
-  background: var(--primary-light);
-  color: var(--primary-dark);
-  padding: 12px 14px;
-  border-radius: 10px;
-  font-weight: 600;
-}
-
-/* BLOG */
-.blog-section {
-  background: var(--light);
-  padding: 90px 20px 60px;
-}
-
-.blog-grid {
-  max-width: 900px;
-  margin: 0 auto;
-
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-
-.blog-card {
-  background: var(--white);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: 0.25s ease;
-}
-
-.blog-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-hover);
-}
-
-.blog-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-
-.blog-info {
-  padding: 18px;
-}
-
-.blog-date {
-  display: block;
-  color: var(--gray);
-  font-size: 12px;
-  margin-bottom: 8px;
-}
-
-.blog-title {
-  font-family: "Jua", sans-serif;
-  font-size: 20px;
-  color: var(--dark);
-  margin-bottom: 8px;
-}
-
-.blog-desc {
-  color: var(--gray);
-  font-size: 14px;
-}
-
-/* CTA SECTION */
-.cta-section {
-  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-  padding: 60px 20px;
-  text-align: center;
-  color: var(--white);
-}
-
-.cta-section h2 {
-  font-family: "Jua", sans-serif;
-  font-size: clamp(22px, 4vw, 36px);
-  margin-bottom: 12px;
-}
-
-.cta-section p {
-  font-size: 16px;
-  opacity: 0.9;
-  margin-bottom: 32px;
-}
-
-.cta-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.cta-kakao,
-.cta-naver {
-  padding: 16px 36px;
-  border-radius: 30px;
-
-  font-size: 17px;
-  font-weight: 700;
-  transition: 0.25s ease;
-}
-
-.cta-kakao {
-  background: var(--kakao);
-  color: #000000;
-}
-
-.cta-naver {
-  background: rgba(255, 255, 255, 0.2);
-  color: var(--white);
-  border: 2px solid var(--white);
-}
-
-.cta-kakao:hover,
-.cta-naver:hover {
-  transform: scale(1.05);
-}
-
-/* FLOATING KAKAO */
-.float-kakao {
-  position: fixed;
-  right: 20px;
-  bottom: 24px;
-  z-index: 999;
-
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  background: var(--kakao);
-  color: #000000;
-  border-radius: 50px;
-  padding: 14px 20px;
-
-  font-size: 15px;
-  font-weight: 700;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  animation: float 3s ease-in-out infinite;
-}
-
-/* MODAL */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
-
-  background: rgba(0, 0, 0, 0.9);
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-overlay.open {
-  display: flex;
-}
-
-.modal-inner {
-  position: relative;
-  max-width: 95vw;
-  max-height: 90vh;
-}
-
-.modal-inner img {
-  max-width: 100%;
-  max-height: 85vh;
-  object-fit: contain;
-  border-radius: 12px;
-}
-
-.modal-close {
-  position: absolute;
-  top: -42px;
-  right: 0;
-
-  background: none;
-  color: var(--white);
-  font-size: 32px;
-}
-
-/* FOOTER */
-.site-footer {
-  background: var(--dark);
-  color: rgba(255, 255, 255, 0.65);
-  padding: 40px 20px;
-  text-align: center;
-
-  font-size: 13px;
-  line-height: 1.8;
-}
-
-.site-footer strong {
-  color: var(--white);
-}
-
-/* ANIMATIONS */
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-6px);
-  }
-}
-
-/* RESPONSIVE */
-@media(max-width:992px){
-
-    .villas-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-}
-
-
-
-
-@media (max-width: 768px) {
- .villas-grid{
-        grid-template-columns:1fr;
-    }
-
-
-  .header-inner {
-    height: 60px;
-  }
-
-  .header-btns {
-    gap: 6px;
-  }
-
-  .btn-kakao,
-  .btn-naver {
-    padding: 7px 11px;
-    font-size: 12px;
-  }
-
-  .hero {
-    min-height: 560px;
-  }
-
-  .tabs-inner {
-    overflow-x: auto;
-  }
-
-  .tab-btn {
-    min-width: 120px;
-    font-size: 16px;
-  }
-
-  .blog-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .detail-main-image {
-    height: 300px;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    width: min(100% - 24px, var(--container));
-  }
-
-  .site-header {
-    padding: 0 12px;
-  }
-
-  .logo {
-    font-size: 18px;
-  }
-
-  .btn-naver {
-    display: none;
-  }
-
-  .hero-cta {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .cta-main,
-  .cta-sub {
-    width: min(100%, 280px);
-    text-align: center;
-  }
-
-  .features-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .villa-photos {
-    height: 220px;
-  }
-
-  .float-kakao {
-    right: 14px;
-    bottom: 18px;
-    padding: 12px 16px;
-    font-size: 14px;
-  }
-
-  .room-options {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-/* SECTION MORE */
-
-.section-more{
-    margin-top:32px;
-    text-align:center;
-}
-
+/* ==========================================================================
+   호치민풀빌라 — Shared Stylesheet
+   File: css/style.css  (mọi trang dùng chung file này)
+   ========================================================================== */
+
+:root{
+  --primary:#00bfa5;
+  --primary-dark:#00897b;
+  --primary-light:#e0f2f1;
+  --kakao:#fee500;
+  --naver:#03c75a;
+
+  --white:#ffffff;
+  --light:#f8f9fa;
+  --gray:#6c757d;
+  --border:#e9ecef;
+  --dark:#1a1a2e;
+  --text:#333333;
+
+  --radius:16px;
+  --shadow:0 4px 16px rgba(0,0,0,.1);
+  --shadow-hover:0 10px 32px rgba(0,0,0,.15);
+  --container:1200px;
+}
+
+/* ============ RESET ============ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans KR",Arial,sans-serif;color:var(--text);background:var(--white);line-height:1.6;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button,input,select,textarea{font:inherit}
+button{border:none;cursor:pointer}
+
+/* ============ COMMON ============ */
+.container{width:min(100% - 32px,var(--container));margin:0 auto}
+.section{padding:60px 20px}
+.section-title{
+  font-family:"Jua",sans-serif;font-size:clamp(24px,4vw,36px);text-align:center;
+  color:var(--dark);margin-bottom:8px;position:relative;padding-bottom:14px;
+}
+.section-title::after{
+  content:"";position:absolute;left:50%;bottom:0;width:64px;height:3px;border-radius:3px;
+  background:var(--primary);transform:translateX(-50%) scaleX(0);transform-origin:center;
+  animation:underline .7s ease .3s forwards;
+}
+.section-subtitle{text-align:center;color:var(--gray);margin-bottom:36px;font-size:15px;padding:0 16px}
+.section-more{margin-top:32px;text-align:center}
 .more-btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:14px 28px;
-
-    background:#ffffff;
-    color:var(--primary-dark);
-
-    border:2px solid var(--primary);
-    border-radius:30px;
-
-    font-size:15px;
-    font-weight:700;
-
-    transition:.3s;
-}
-
-.more-btn:hover{
-    background:var(--primary);
-    color:#ffffff;
-    transform:translateY(-2px);
-}
-
-.page-hero {
-  padding-top:80px;
-  align-items: center;
-  align-content: center;
-  text-align: center;
-}
-/* ===== ADD FROM OLD CSS / OVERRIDE ===== */
-
-.section-tabs {
-  position: sticky;
-  top: 60px;
-  z-index: 100;
-  background: var(--white);
-  border-bottom: 2px solid #eeeeee;
-}
-
-.tabs-inner {
-  max-width: var(--container);
-  margin: 0 auto;
-  display: flex;
-}
-
-.tab-btn {
-  flex: 1;
-  padding: 16px;
-  background: transparent;
-  font-family: "Jua", sans-serif;
-  font-size: 18px;
-  color: var(--gray);
-  border-bottom: 3px solid transparent;
-  margin-bottom: -2px;
-  transition: 0.3s ease;
-}
-
-.tab-btn.active {
-  color: var(--primary-dark);
-  border-bottom-color: var(--primary);
-}
-
-.villa-tab-content {
-  display: none;
-}
-
-.villa-tab-content.active {
-  display: block;
-}
-
-.villas-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  padding: 24px 16px 40px;
-}
-
-.villa-photos {
-  height: 220px;
-}
-
-.villa-photos img.active,
-.villa-photos img:first-child {
-  opacity: 1;
-}
-
-.section-more {
-  margin-top: 32px;
-  text-align: center;
-}
-
-.more-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 28px;
-  background: #ffffff;
-  color: var(--primary-dark);
-  border: 2px solid var(--primary);
-  border-radius: 30px;
-  font-size: 15px;
-  font-weight: 700;
-  transition: 0.3s;
-}
-
-.more-btn:hover {
-  background: var(--primary);
-  color: #ffffff;
-  transform: translateY(-2px);
-}
-
-@media (max-width: 992px) {
-  .villas-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .villas-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .tabs-inner {
-    overflow-x: auto;
-  }
-
-  .tab-btn {
-    min-width: 120px;
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .villa-photos {
-    height: 220px;
-  }
-
-  .room-options {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-.location-nav{
-    background:#fff;
-    padding:24px 16px;
-    border-bottom:1px solid #eee;
-}
-
-.location-links{
-    max-width:1200px;
-    margin:auto;
-
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    justify-content:center;
-}
-
-.location-links a{
-    padding:10px 18px;
-
-    background:#f5f5f5;
-    border-radius:30px;
-
-    font-weight:600;
-    color:var(--primary-dark);
-
-    transition:.3s;
-}
-
-.location-links a:hover{
-    background:var(--primary);
-    color:#fff;
-}
-
-
-
-/* ===== DETAIL PAGE BEAUTY + ANIMATION ===== */
-
-.detail-card {
-  animation: fadeUp 0.8s ease both;
-}
-
-.detail-body h2 {
-  position: relative;
-  margin: 38px 0 18px;
-  padding-left: 16px;
-  font-family: "Jua", sans-serif;
-  font-size: 28px;
-  color: var(--dark);
-}
-
-.detail-body h2::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 6px;
-  width: 5px;
-  height: 28px;
-  border-radius: 20px;
-  background: var(--primary);
-}
-
-.detail-text {
-  background: #ffffff;
-  border-left: 5px solid var(--primary);
-  padding: 20px 22px;
-  border-radius: 14px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
-  line-height: 1.8;
-}
-
-.detail-list {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.detail-list li {
-  background: linear-gradient(135deg, #ffffff, var(--primary-light));
-  border: 1px solid rgba(0, 191, 165, 0.18);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-  transition: 0.25s ease;
-}
-
-.detail-list li:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow);
-}
-
-.room-option {
-  background: linear-gradient(135deg, #ffffff, var(--primary-light));
-  border: 1px solid rgba(0, 191, 165, 0.2);
-  transition: 0.25s ease;
-}
-
-.room-option:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow);
-}
-
-.detail-gallery img {
-  transition: 0.3s ease;
-}
-
-.detail-gallery img:hover {
-  transform: scale(1.04);
-  box-shadow: var(--shadow-hover);
-}
-
-.faq-item {
-  background: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 18px 20px;
-  margin-bottom: 14px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-  animation: fadeUp 0.8s ease both;
-}
-
-.faq-item h3 {
-  margin-bottom: 8px;
-  color: var(--primary-dark);
-  font-family: "Jua", sans-serif;
-  font-size: 20px;
-}
-
-.faq-item p {
-  color: var(--gray);
-  margin: 0;
-}
-
-
-.detail-kakao,
-.detail-naver {
-  transition: 0.25s ease;
-}
-
-.detail-kakao:hover,
-.detail-naver:hover {
-  transform: translateY(-3px) scale(1.02);
-}
-
-/* Scroll animation base */
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: 0.7s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Keyframes */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(26px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes softZoom {
-  from {
-    transform: scale(1.04);
-  }
-
-  to {
-    transform: scale(1);
-  }
-}
-
-.detail-main-image {
-  animation: softZoom 1.2s ease both;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .detail-list {
-    grid-template-columns: 1fr;
-  }
-
-  .detail-body h2 {
-    font-size: 24px;
-  }
-
-  .detail-text {
-    padding: 18px;
-  }
-}
-/* Gallery ảnh chi tiết villa: ô vuông đều nhau */
-.detail-gallery {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-}
-
-.detail-gallery img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  height: auto;
-  object-fit: cover;
-  border-radius: 12px;
-  cursor: pointer;
-}
-
-/* Tablet */
-@media (max-width: 768px) {
-  .detail-gallery {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-  .detail-gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-
-/* =========================
-   DETAIL ACTION BUTTONS
-========================= */
-
-.detail-actions{
-    margin-top:40px;
-
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
-.detail-actions a{
-    flex:1;
-    min-height:56px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:12px;
-
-    font-size:16px;
-    font-weight:700;
-
-    transition:.3s;
-}
-
-.detail-kakao{
-    background:#FEE500;
-    color:#000;
-}
-
-.detail-kakao:hover{
-    transform:translateY(-3px);
-    box-shadow:0 10px 20px rgba(254,229,0,.35);
-}
-
-.detail-naver{
-    background:#03C75A;
-    color:#fff;
-}
-
-.detail-naver:hover{
-    transform:translateY(-3px);
-    box-shadow:0 10px 20px rgba(3,199,90,.35);
-}
-@media (max-width:768px){
-
-    .detail-actions{
-        flex-direction:column;
-    }
-
-    .detail-actions a{
-        width:100%;
-    }
-
-}
-
-
-/* =========================
-   VILLA FILTER BUTTONS
-========================= */
-
-.villa-filter-section {
-  background: #ffffff;
-  padding: 26px 16px;
-  border-bottom: 1px solid #eeeeee;
-}
-
-.villa-filter-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.villa-filter-btn {
-  padding: 11px 20px;
-  border-radius: 999px;
-
-  background: #f5f5f5;
-  color: var(--primary-dark);
-
-  border: 1px solid rgba(0, 191, 165, 0.2);
-
-  font-size: 15px;
-  font-weight: 700;
-
-  transition: 0.25s ease;
-}
-
-.villa-filter-btn:hover {
-  background: var(--primary-light);
-  transform: translateY(-2px);
-}
-
-.villa-filter-btn.active {
-  background: var(--primary);
-  color: #ffffff;
-  box-shadow: 0 8px 18px rgba(0, 191, 165, 0.25);
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-  .villa-filter-buttons {
-    justify-content: flex-start;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    padding-bottom: 6px;
-  }
-
-  .villa-filter-btn {
-    flex: 0 0 auto;
-    font-size: 14px;
-    padding: 10px 16px;
-  }
-}
-
-
-/* =========================
-   BLOG DETAIL
-========================= */
-
-.blog-detail {
-    padding: 80px 20px;
-}
-
-.blog-detail-container {
-    max-width: 900px;
-    margin: auto;
-}
-
-.blog-detail-body {
-    background: #fff;
-    padding: 50px;
-    border-radius: 24px;
-    box-shadow: var(--shadow);
-}
-
-.blog-detail-body p {
-    font-size: 18px;
-    line-height: 1.9;
-    color: #555;
-    margin-bottom: 24px;
-}
-
-.blog-detail-body h2 {
-    margin: 50px 0 20px;
-    font-size: 32px;
-    color: var(--dark);
-}
-
-.blog-content-image {
-    width: 100%;
-    border-radius: 20px;
-    margin: 30px 0;
-    display: block;
-}
-
-.blog-note {
-    background: #f5fffb;
-    border-left: 5px solid var(--primary);
-    padding: 25px;
-    border-radius: 14px;
-    margin: 30px 0;
-}
-
-.blog-intro {
-    font-size: 22px !important;
-    font-weight: 500;
-    color: #333 !important;
-}
-
-.blog-hero {
-    position: relative;
-    height: 500px;
-}
-
-.blog-hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.blog-hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,.45);
-}
-
-.blog-hero-content {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
-    text-align: center;
-    color: #fff;
-
-    width: 90%;
-    max-width: 900px;
-}
-
-.blog-hero-content h1 {
-    font-size: 52px;
-    line-height: 1.3;
-    margin: 20px 0;
-}
-
-.blog-category {
-    background: var(--primary);
-    padding: 8px 18px;
-    border-radius: 999px;
-}
-
-.blog-meta {
-    opacity: .8;
+  display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;
+  background:#fff;color:var(--primary-dark);border:2px solid var(--primary);border-radius:30px;
+  font-size:15px;font-weight:700;transition:.3s;
+}
+.more-btn:hover{background:var(--primary);color:#fff;transform:translateY(-2px)}
+
+/* ============ HEADER ============ */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(255,255,255,.95);backdrop-filter:blur(10px);
+  box-shadow:0 2px 20px rgba(0,0,0,.1);padding:0 20px;
+}
+.header-inner{max-width:var(--container);height:60px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.logo{
+  font-family:"Jua",sans-serif;font-size:28px;font-weight:700;display:inline-block;
+  background:linear-gradient(90deg,#00bfa5,#03c75a,#00bfa5,#00c2ff,#00bfa5);
+  background-size:400% 400%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:logoGradient 6s linear infinite,logoWave 2.5s ease-in-out infinite;
+}
+.logo span{
+  background:linear-gradient(90deg,#ff9800,#ff5722,#ff9800);background-size:300% 300%;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:logoGradient 4s linear infinite;
+}
+.logo:hover{transform:scale(1.05);transition:.3s}
+.header-btns{display:flex;align-items:center;gap:10px}
+.btn-kakao,.btn-naver{padding:8px 16px;border-radius:20px;font-size:13px;font-weight:700;white-space:nowrap;transition:.25s ease}
+.btn-kakao{background:var(--kakao);color:#000}
+.btn-naver{background:var(--naver);color:var(--white)}
+.btn-kakao:hover,.btn-naver:hover{transform:scale(1.05)}
+
+/* ============ HERO (홈) ============ */
+.hero{position:relative;height:100vh;min-height:600px;margin-top:60px;overflow:hidden}
+.hero-slider,.hero-slide{width:100%;height:100%}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
+.hero-slide.active{opacity:1}
+.hero-slide img{width:100%;height:100%;object-fit:cover}
+.hero-slide.active img{animation:ken 6s ease-out forwards}
+.hero-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(to bottom,rgba(0,0,0,.2),rgba(0,0,0,.65))}
+.hero-content{position:absolute;left:0;right:0;bottom:0;z-index:3;text-align:center;color:var(--white);padding:40px 20px 60px}
+.hero-content>*{opacity:0;transform:translateY(26px);animation:heroUp .9s cubic-bezier(.22,.61,.36,1) forwards}
+.hero-badge{
+  display:inline-block;background:var(--primary);color:var(--white);padding:6px 16px;border-radius:20px;
+  font-size:13px;font-weight:700;margin-bottom:16px;
+  animation:heroUp .9s cubic-bezier(.22,.61,.36,1) .2s forwards,pulse 2s 1.2s infinite;
+}
+.hero-title{font-family:"Jua",sans-serif;font-size:clamp(28px,6vw,56px);line-height:1.2;margin-bottom:12px;text-shadow:0 2px 10px rgba(0,0,0,.5);animation-delay:.4s}
+.hero-subtitle{font-size:clamp(14px,3vw,18px);opacity:.9;margin-bottom:28px;animation-delay:.6s}
+.hero-cta{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;animation-delay:.8s}
+.cta-main,.cta-sub{padding:14px 30px;border-radius:30px;font-size:16px;font-weight:700;transition:.25s ease}
+.cta-main{background:var(--kakao);color:#000;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.cta-sub{background:rgba(255,255,255,.2);color:var(--white);border:2px solid var(--white);backdrop-filter:blur(5px)}
+.cta-main:hover,.cta-sub:hover{transform:translateY(-2px)}
+.scroll-cue{position:absolute;left:50%;bottom:18px;z-index:3;transform:translateX(-50%);color:rgba(255,255,255,.85);font-size:26px;animation:cueBounce 2s ease-in-out infinite;pointer-events:none}
+
+/* ============ PAGE HERO (목록/내부) ============ */
+.page-hero{padding:100px 20px 40px;text-align:center;background:linear-gradient(135deg,var(--primary-light),#fff)}
+.page-hero h1{font-family:"Jua",sans-serif;font-size:clamp(26px,5vw,42px);color:var(--dark);margin-bottom:14px;opacity:0;transform:translateY(24px);animation:heroUp .8s ease .1s forwards}
+.page-hero p{max-width:760px;margin:0 auto;color:var(--gray);font-size:clamp(14px,2.4vw,16px);opacity:0;transform:translateY(24px);animation:heroUp .8s ease .3s forwards}
+
+/* ============ FEATURES ============ */
+.features{background:var(--primary-light);padding:40px 20px}
+.features-grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;text-align:center}
+.feature-item{background:var(--white);border-radius:var(--radius);padding:20px 12px;box-shadow:0 2px 10px rgba(0,0,0,.06);transition:.25s ease}
+.feature-item:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.feature-icon{font-size:32px;margin-bottom:8px}
+.feature-name{font-family:"Jua",sans-serif;font-size:15px;color:var(--primary-dark)}
+
+/* ============ FILTER (목록) ============ */
+.villa-filter-section{background:#fff;padding:24px 16px;border-bottom:1px solid #eee;position:sticky;top:60px;z-index:100}
+.villa-filter-buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;max-width:var(--container);margin:0 auto}
+.villa-filter-btn{padding:11px 22px;border-radius:999px;background:#f5f5f5;color:var(--primary-dark);border:1px solid rgba(0,191,165,.2);font-size:15px;font-weight:700;transition:.25s ease}
+.villa-filter-btn:hover{background:var(--primary-light);transform:translateY(-2px)}
+.villa-filter-btn.active{background:var(--primary);color:#fff;box-shadow:0 8px 18px rgba(0,191,165,.25)}
+
+/* ============ VILLAS GRID + CARD ============ */
+.villas-section{background:#f5f5f5;padding:36px 0 60px}
+.villas-grid{max-width:var(--container);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:24px 16px 40px}
+.villa-card{position:relative;display:block;width:100%;background:var(--white);border:1px solid #e8e8e8;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .25s ease,box-shadow .25s ease}
+.villa-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover)}
+.villa-photos{position:relative;width:100%;height:220px;background:#eee;overflow:hidden}
+.villa-photos img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.villa-card:hover .villa-photos img{transform:scale(1.06)}
+.villa-photos.ph{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--primary-light),#f5f5f5)}
+.villa-photos.ph span{font-family:"Jua",sans-serif;font-size:15px;color:var(--primary-dark);opacity:.8}
+.villa-badge{position:absolute;top:10px;left:10px;z-index:2;background:#ff6b35;color:var(--white);padding:3px 9px;border-radius:10px;font-size:12px;font-weight:700}
+.villa-info{padding:16px}
+.villa-name{font-family:"Jua",sans-serif;font-size:18px;color:var(--dark);margin-bottom:4px}
+.villa-rooms{color:var(--primary-dark);font-size:13px;font-weight:700;margin-bottom:6px}
+.villa-price{font-size:13px;color:var(--text);font-weight:500;margin-bottom:10px}
+.villa-price b{color:var(--primary-dark)}
+.villa-desc{font-size:13px;color:var(--gray);line-height:1.5;margin-bottom:12px}
+.villa-amenities{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.amenity-tag{background:var(--primary-light);color:var(--primary-dark);padding:3px 8px;border-radius:20px;font-size:11px;font-weight:500}
+.villa-cta{display:block;width:100%;background:var(--primary);color:var(--white);text-align:center;padding:12px;border-radius:10px;font-size:15px;font-weight:700;transition:.25s ease}
+.villa-cta:hover{background:var(--primary-dark)}
+.villa-empty{max-width:var(--container);margin:0 auto;text-align:center;color:var(--gray);padding:40px 16px;font-size:15px}
+
+/* ============ DETAIL PAGE ============ */
+.detail-section{background:var(--light);padding:90px 20px 60px}
+.detail-wrap{max-width:900px;margin:0 auto}
+.detail-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);animation:fadeUp .8s ease both}
+.detail-main-image{width:100%;height:420px;object-fit:cover;animation:softZoom 1.2s ease both}
+.detail-body{padding:24px}
+.detail-title{font-family:"Jua",sans-serif;font-size:clamp(24px,4vw,36px);color:var(--dark);margin-bottom:8px}
+.detail-meta{color:var(--primary-dark);font-weight:700;margin-bottom:16px}
+.detail-body h2{position:relative;margin:38px 0 18px;padding-left:16px;font-family:"Jua",sans-serif;font-size:28px;color:var(--dark)}
+.detail-body h2::before{content:"";position:absolute;left:0;top:6px;width:5px;height:28px;border-radius:20px;background:var(--primary)}
+.detail-text{background:#fff;border-left:5px solid var(--primary);padding:20px 22px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.06);line-height:1.8;margin-bottom:24px}
+.detail-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:24px}
+.detail-list li{background:linear-gradient(135deg,#fff,var(--primary-light));color:var(--primary-dark);padding:12px 14px;border-radius:10px;font-weight:600;border:1px solid rgba(0,191,165,.18);box-shadow:0 4px 14px rgba(0,0,0,.05);transition:.25s ease}
+.detail-list li:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+
+/* ROOM OPTIONS (giá) */
+.room-options{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:10px 0 24px}
+.room-option{background:linear-gradient(135deg,#fff,var(--primary-light));border:1px solid rgba(0,191,165,.2);border-radius:8px;padding:10px 4px;text-align:center;transition:.25s ease}
+.room-option:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.room-option-rooms{font-family:"Jua",sans-serif;font-size:13px;color:var(--primary-dark)}
+.room-option-price{font-size:12px;color:var(--gray);margin-top:2px}
+
+/* GALLERY */
+.detail-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
+.detail-gallery img{width:100%;aspect-ratio:1/1;height:auto;object-fit:cover;border-radius:12px;cursor:pointer;transition:.3s ease}
+.detail-gallery img:hover{transform:scale(1.04);box-shadow:var(--shadow-hover)}
+
+/* FAQ */
+.faq-item{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px;margin-bottom:14px;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+.faq-item h3{margin-bottom:8px;color:var(--primary-dark);font-family:"Jua",sans-serif;font-size:20px}
+.faq-item p{color:var(--gray);margin:0}
+
+/* DETAIL ACTION BUTTONS */
+.detail-actions{margin-top:40px;display:flex;gap:15px;flex-wrap:wrap}
+.detail-actions a{flex:1;min-height:56px;display:flex;align-items:center;justify-content:center;border-radius:12px;font-size:16px;font-weight:700;transition:.3s}
+.detail-kakao{background:#fee500;color:#000}
+.detail-kakao:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(254,229,0,.35)}
+.detail-naver{background:#03c75a;color:#fff}
+.detail-naver:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(3,199,90,.35)}
+
+/* ============ BLOG ============ */
+.blog-section{background:var(--light);padding:90px 20px 60px}
+.blog-grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.blog-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:.25s ease}
+.blog-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover)}
+.blog-card img{width:100%;height:220px;object-fit:cover;transition:transform .4s ease}
+.blog-card:hover img{transform:scale(1.05)}
+.blog-info{padding:18px}
+.blog-date{display:block;color:var(--gray);font-size:12px;margin-bottom:8px}
+.blog-title{font-family:"Jua",sans-serif;font-size:20px;color:var(--dark);margin-bottom:8px}
+.blog-desc{color:var(--gray);font-size:14px}
+
+/* BLOG DETAIL */
+.blog-hero{position:relative;height:500px}
+.blog-hero img{width:100%;height:100%;object-fit:cover}
+.blog-hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.45)}
+.blog-hero-content{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;color:#fff;width:90%;max-width:900px}
+.blog-hero-content h1{font-size:clamp(28px,5vw,52px);line-height:1.3;margin:20px 0}
+.blog-category{background:var(--primary);padding:8px 18px;border-radius:999px;font-weight:700}
+.blog-meta{opacity:.8;margin-top:8px}
+.blog-detail{padding:80px 20px}
+.blog-detail-container{max-width:900px;margin:auto}
+.blog-detail-body{background:#fff;padding:clamp(24px,5vw,50px);border-radius:24px;box-shadow:var(--shadow)}
+.blog-detail-body p{font-size:18px;line-height:1.9;color:#555;margin-bottom:24px}
+.blog-detail-body h2{margin:50px 0 20px;font-size:clamp(24px,4vw,32px);color:var(--dark)}
+.blog-detail-body ul{margin:0 0 24px 20px;list-style:disc;color:#555}
+.blog-detail-body li{margin-bottom:8px}
+.blog-content-image{width:100%;border-radius:20px;margin:30px 0;display:block}
+.blog-note{background:#f5fffb;border-left:5px solid var(--primary);padding:25px;border-radius:14px;margin:30px 0}
+.blog-note p{margin:8px 0 0;font-size:16px}
+.blog-intro{font-size:22px !important;font-weight:500;color:#333 !important}
+
+/* ============ CTA SECTION ============ */
+.cta-section{background:linear-gradient(135deg,var(--primary-dark),var(--primary));padding:60px 20px;text-align:center;color:var(--white)}
+.cta-section h2{font-family:"Jua",sans-serif;font-size:clamp(22px,4vw,36px);margin-bottom:12px}
+.cta-section p{font-size:16px;opacity:.9;margin-bottom:32px}
+.cta-buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:16px}
+.cta-kakao,.cta-naver{padding:16px 36px;border-radius:30px;font-size:17px;font-weight:700;transition:.25s ease}
+.cta-kakao{background:var(--kakao);color:#000}
+.cta-naver{background:rgba(255,255,255,.2);color:var(--white);border:2px solid var(--white)}
+.cta-kakao:hover,.cta-naver:hover{transform:scale(1.05)}
+
+/* ============ FOOTER + FLOAT ============ */
+.site-footer{background:var(--dark);color:rgba(255,255,255,.65);padding:40px 20px;text-align:center;font-size:13px;line-height:1.8}
+.site-footer strong{color:var(--white)}
+.float-kakao{position:fixed;right:20px;bottom:24px;z-index:999;display:flex;align-items:center;gap:8px;background:var(--kakao);color:#000;border-radius:50px;padding:14px 20px;font-size:15px;font-weight:700;box-shadow:0 4px 20px rgba(0,0,0,.2);animation:float 3s ease-in-out infinite}
+
+/* ============ MODAL (이미지 확대) ============ */
+.modal-overlay{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.9);align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal-inner{position:relative;max-width:95vw;max-height:90vh}
+.modal-inner img{max-width:100%;max-height:85vh;object-fit:contain;border-radius:12px}
+.modal-close{position:absolute;top:-42px;right:0;background:none;color:var(--white);font-size:32px}
+
+/* ============ SCROLL REVEAL (js/main.js 가 .active 추가) ============ */
+.reveal{opacity:0;transform:translateY(28px);transition:.7s ease}
+.reveal.active{opacity:1;transform:translateY(0)}
+
+/* ============ KEYFRAMES ============ */
+@keyframes underline{to{transform:translateX(-50%) scaleX(1)}}
+@keyframes heroUp{to{opacity:1;transform:translateY(0)}}
+@keyframes ken{from{transform:scale(1.1)}to{transform:scale(1)}}
+@keyframes cueBounce{0%,100%{transform:translate(-50%,0);opacity:.6}50%{transform:translate(-50%,8px);opacity:1}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@keyframes softZoom{from{transform:scale(1.04)}to{transform:scale(1)}}
+@keyframes logoGradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes logoWave{0%,50%,100%{transform:skewX(0)}25%{transform:skewX(-3deg)}75%{transform:skewX(3deg)}}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:992px){
+  .villas-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .villas-grid{grid-template-columns:1fr}
+  .blog-grid{grid-template-columns:1fr}
+  .hero{min-height:560px}
+  .detail-main-image{height:300px}
+  .detail-list{grid-template-columns:1fr}
+  .detail-body h2{font-size:24px}
+  .detail-gallery{grid-template-columns:repeat(3,1fr)}
+  .detail-actions{flex-direction:column}
+  .detail-actions a{width:100%}
+}
+@media(max-width:480px){
+  .container{width:min(100% - 24px,var(--container))}
+  .site-header{padding:0 12px}
+  .logo{font-size:18px}
+  .btn-naver{display:none}
+  .hero-cta{flex-direction:column;align-items:center}
+  .cta-main,.cta-sub{width:min(100%,280px);text-align:center}
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .float-kakao{right:14px;bottom:18px;padding:12px 16px;font-size:14px}
+  .room-options{grid-template-columns:repeat(2,1fr)}
+  .detail-gallery{grid-template-columns:repeat(2,1fr)}
+  .villa-filter-buttons{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:6px}
+  .villa-filter-btn{flex:0 0 auto;font-size:14px;padding:10px 18px}
 }
