@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>관리자 페이지 — 호치민풀빌라</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:"Noto Sans KR",Arial,sans-serif;background:#0f1115;color:#e7e9ee;line-height:1.5}
+    /* GATE */
+    #gate{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#0f1115;z-index:10}
+    .gate-box{background:#171a21;border:1px solid #2a2f3a;border-radius:16px;padding:34px 30px;width:min(92%,360px);text-align:center}
+    .gate-box h1{font-size:20px;margin-bottom:6px}
+    .gate-box p{font-size:13px;color:#9aa3b2;margin-bottom:20px}
+    .gate-box input{width:100%;padding:13px 14px;border-radius:10px;border:1px solid #2a2f3a;background:#0f1115;color:#fff;font-size:15px;margin-bottom:12px}
+    .gate-box button{width:100%;padding:13px;border:none;border-radius:10px;background:#00bfa5;color:#04221d;font-weight:700;font-size:15px;cursor:pointer}
+    .gate-box button:hover{background:#00a892}
+    #err{color:#ff6b6b;font-size:13px;min-height:18px;margin-top:8px}
+    /* PANEL */
+    #panel{display:none;max-width:1100px;margin:0 auto;padding:24px 16px 60px}
+    header.bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:18px}
+    header.bar h1{font-size:22px}
+    .stat{font-size:13px;color:#9aa3b2}
+    .stat b{color:#00d6bb}
+    .search{width:100%;padding:12px 14px;border-radius:10px;border:1px solid #2a2f3a;background:#171a21;color:#fff;font-size:14px;margin-bottom:16px}
+    table{width:100%;border-collapse:collapse;font-size:13.5px}
+    th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #232833;vertical-align:top}
+    th{position:sticky;top:0;background:#1c2029;color:#9aa3b2;font-weight:600;font-size:12px;white-space:nowrap}
+    tr:hover td{background:#161a22}
+    .code{font-family:monospace;color:#ffd166;font-weight:700;white-space:nowrap}
+    .note{color:#9aa3b2;font-size:12.5px}
+    .url{color:#5c6370;font-size:11px;font-family:monospace;margin-top:2px}
+    td a{color:#00d6bb;font-weight:600;text-decoration:none;white-space:nowrap}
+    td a:hover{text-decoration:underline}
+    .cat{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:700}
+    .cat-빌라{background:#1d3a34;color:#4fd1b5}
+    .cat-블로그{background:#3a2f1d;color:#e0b34f}
+    .cat-기본{background:#22304a;color:#6aa0ff}
+    .cat-SEO{background:#3a1d33;color:#e06ac0}
+    .logout{background:#2a2f3a;color:#cfd6e2;border:none;padding:9px 16px;border-radius:8px;font-size:13px;cursor:pointer}
+    .hint{margin-top:24px;font-size:12px;color:#6a7280;border-top:1px solid #232833;padding-top:14px}
+  </style>
+</head>
+<body>
+  <div id="gate">
+    <div class="gate-box">
+      <h1>🔒 관리자 페이지</h1>
+      <p>비밀번호를 입력하세요</p>
+      <input id="pw" type="password" placeholder="비밀번호" onkeydown="if(event.key==='Enter')doLogin()">
+      <button onclick="doLogin()">입장</button>
+      <div id="err"></div>
+    </div>
+  </div>
+
+  <div id="panel">
+    <header class="bar">
+      <h1>📋 페이지 관리</h1>
+      <div class="stat">전체 <b>40</b> · 빌라 <b>25</b> · 블로그 <b>10</b>
+        &nbsp; <button class="logout" onclick="location.reload()">잠그기</button>
+      </div>
+    </header>
+
+    <input class="search" id="search" placeholder="🔍 코드 / 이름 / 주소 / 링크 검색..." oninput="filterRows()">
+
+    <table>
+      <thead>
+        <tr><th>#</th><th>분류</th><th>코드</th><th>이름 / 제목</th><th>주소 / 메모</th><th>링크</th></tr>
+      </thead>
+      <tbody id="tbody">
+      <tr data-s="home 홈 (메인 페이지) 사이트 첫 화면 /"><td>1</td><td><span class="cat cat-기본">기본</span></td><td class="code">HOME</td><td>홈 (메인 페이지)</td><td class="note">사이트 첫 화면</td><td><a href="/" target="_blank" rel="noopener">열기 ↗</a><div class="url">/</div></td></tr>
+      <tr data-s="list 빌라 목록 전체 빌라 리스트 /villa/villa.html"><td>2</td><td><span class="cat cat-기본">기본</span></td><td class="code">LIST</td><td>빌라 목록</td><td class="note">전체 빌라 리스트</td><td><a href="/villa/villa.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa.html</div></td></tr>
+      <tr data-s="blog 블로그 목록 블로그 글 리스트 /blog/blog.html"><td>3</td><td><span class="cat cat-기본">기본</span></td><td class="code">BLOG</td><td>블로그 목록</td><td class="note">블로그 글 리스트</td><td><a href="/blog/blog.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/blog/blog.html</div></td></tr>
+      <tr data-s="sitemap sitemap.xml 검색엔진 색인 /sitemap.xml"><td>4</td><td><span class="cat cat-SEO">SEO</span></td><td class="code">SITEMAP</td><td>sitemap.xml</td><td class="note">검색엔진 색인</td><td><a href="/sitemap.xml" target="_blank" rel="noopener">열기 ↗</a><div class="url">/sitemap.xml</div></td></tr>
+      <tr data-s="robots robots.txt 크롤러 설정 /robots.txt"><td>5</td><td><span class="cat cat-SEO">SEO</span></td><td class="code">ROBOTS</td><td>robots.txt</td><td class="note">크롤러 설정</td><td><a href="/robots.txt" target="_blank" rel="noopener">열기 ↗</a><div class="url">/robots.txt</div></td></tr>
+      <tr data-s="q2-6br 빌라 199 응우옌티딘, 빈쯩, 호치민 2군 /villa/villa-detail-199.html"><td>6</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">Q2-6BR</td><td>빌라 199</td><td class="note">응우옌티딘, 빈쯩, 호치민 2군</td><td><a href="/villa/villa-detail-199.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-detail-199.html</div></td></tr>
+      <tr data-s="q2-8br 정원 빌라 안카인 55번가 18, 호치민 2군 /villa/villa-detail-sanvuon-q2.html"><td>7</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">Q2-8BR</td><td>정원 빌라</td><td class="note">안카인 55번가 18, 호치민 2군</td><td><a href="/villa/villa-detail-sanvuon-q2.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-detail-sanvuon-q2.html</div></td></tr>
+      <tr data-s="q2-6br-2 villa ruby 09 53번가 09, 하도 단지, 타오미로이(투득시) /villa/villa-ruby-09.html"><td>8</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">Q2-6BR-2</td><td>VILLA RUBY 09</td><td class="note">53번가 09, 하도 단지, 타오미로이(투득시)</td><td><a href="/villa/villa-ruby-09.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-ruby-09.html</div></td></tr>
+      <tr data-s="q2-7br 정원 빌라 2 타오디엔, 호치민 2군(투득시) /villa/thao-dien-villa.html"><td>9</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">Q2-7BR</td><td>정원 빌라 2</td><td class="note">타오디엔, 호치민 2군(투득시)</td><td><a href="/villa/thao-dien-villa.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/thao-dien-villa.html</div></td></tr>
+      <tr data-s="q2-8br-2 센트럴 빌라 호치민 2군 /villa/central-villa.html"><td>10</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">Q2-8BR-2</td><td>센트럴 빌라</td><td class="note">호치민 2군</td><td><a href="/villa/central-villa.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/central-villa.html</div></td></tr>
+      <tr data-s="q2-7br-2 빌라 299 299k7 5번가, 빈쯩(안푸), 호치민 2군 /villa/villa-detail-299.html"><td>11</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">Q2-7BR-2</td><td>빌라 299</td><td class="note">299K7 5번가, 빈쯩(안푸), 호치민 2군</td><td><a href="/villa/villa-detail-299.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-detail-299.html</div></td></tr>
+      <tr data-s="q2-6br-3 d2 center pool villa 97/5 쩐나오, 안카인, 호치민 2군 /villa/villa-detail-d2-center.html"><td>12</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">Q2-6BR-3</td><td>D2 CENTER POOL VILLA</td><td class="note">97/5 쩐나오, 안카인, 호치민 2군</td><td><a href="/villa/villa-detail-d2-center.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-detail-d2-center.html</div></td></tr>
+      <tr data-s="q2-7br-3 luxe verde villa 53b번가 10, 타인미러이, 호치민 2군 /villa/villa-luxe-verde.html"><td>13</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">Q2-7BR-3</td><td>LUXE VERDE VILLA</td><td class="note">53B번가 10, 타인미러이, 호치민 2군</td><td><a href="/villa/villa-luxe-verde.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-luxe-verde.html</div></td></tr>
+      <tr data-s="q2-8br-3 villa diamond 14 응우옌몽뚜언, 타인미러이, 호치민 2군 /villa/villa-diamond.html"><td>14</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">Q2-8BR-3</td><td>VILLA DIAMOND</td><td class="note">14 응우옌몽뚜언, 타인미러이, 호치민 2군</td><td><a href="/villa/villa-diamond.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-diamond.html</div></td></tr>
+      <tr data-s="q2-9br villa harmony 7 54번가, 타인미러이, 호치민 2군 /villa/villa-harmony.html"><td>15</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">Q2-9BR</td><td>VILLA HARMONY</td><td class="note">7 54번가, 타인미러이, 호치민 2군</td><td><a href="/villa/villa-harmony.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-harmony.html</div></td></tr>
+      <tr data-s="q2-10br garden oasis pool villa 22 d3번가, 사이공 미스터리, 타인미러이, 호치민 2군 /villa/villa-garden-oasis.html"><td>16</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">Q2-10BR</td><td>GARDEN OASIS POOL VILLA</td><td class="note">22 D3번가, 사이공 미스터리, 타인미러이, 호치민 2군</td><td><a href="/villa/villa-garden-oasis.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-garden-oasis.html</div></td></tr>
+      <tr data-s="q2-6br-4 villa paradise 40/30 19b번가, 안카인(투득시) /villa/villa-paradise.html"><td>17</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">Q2-6BR-4</td><td>VILLA PARADISE</td><td class="note">40/30 19B번가, 안카인(투득시)</td><td><a href="/villa/villa-paradise.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-paradise.html</div></td></tr>
+      <tr data-s="bc-9br mia riverside villa 92 1번가, 쭝선 단지, 빈찬 /villa/villa-mia-riverside.html"><td>18</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">BC-9BR</td><td>MIA RIVERSIDE VILLA</td><td class="note">92 1번가, 쭝선 단지, 빈찬</td><td><a href="/villa/villa-mia-riverside.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-mia-riverside.html</div></td></tr>
+      <tr data-s="q1-6br ben thanh pool villa 87 응우옌티민카이, 호치민 1군 /villa/villa-ben-thanh.html"><td>19</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">Q1-6BR</td><td>BEN THANH POOL VILLA</td><td class="note">87 응우옌티민카이, 호치민 1군</td><td><a href="/villa/villa-ben-thanh.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-ben-thanh.html</div></td></tr>
+      <tr data-s="q7-9br sunrise villa q7 5-7 10번가, 힘람 단지, 호치민 7군 /villa/villa-sunrise-q7.html"><td>20</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">Q7-9BR</td><td>SUNRISE VILLA Q7</td><td class="note">5-7 10번가, 힘람 단지, 호치민 7군</td><td><a href="/villa/villa-sunrise-q7.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-sunrise-q7.html</div></td></tr>
+      <tr data-s="q7-9br-2 luna casa villa 7 11번가, 힘람 단지, 호치민 7군 /villa/villa-luna-casa.html"><td>21</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">Q7-9BR-2</td><td>LUNA CASA VILLA</td><td class="note">7 11번가, 힘람 단지, 호치민 7군</td><td><a href="/villa/villa-luna-casa.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-luna-casa.html</div></td></tr>
+      <tr data-s="q7-9br-3 sanorita pool villa 13 11번가, 힘람 단지, 호치민 7군 /villa/villa-sanorita.html"><td>22</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">Q7-9BR-3</td><td>SANORITA POOL VILLA</td><td class="note">13 11번가, 힘람 단지, 호치민 7군</td><td><a href="/villa/villa-sanorita.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-sanorita.html</div></td></tr>
+      <tr data-s="yolo-4br 욜로 타오디엔 4룸 타오디엔, 호치민 2군 /villa/villa-yolo-4br.html"><td>23</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">YOLO-4BR</td><td>욜로 타오디엔 4룸</td><td class="note">타오디엔, 호치민 2군</td><td><a href="/villa/villa-yolo-4br.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-yolo-4br.html</div></td></tr>
+      <tr data-s="yolo-5br 욜로 타오디엔 5룸 (a) 타오디엔, 호치민 2군 /villa/villa-yolo-5br.html"><td>24</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">YOLO-5BR</td><td>욜로 타오디엔 5룸 (A)</td><td class="note">타오디엔, 호치민 2군</td><td><a href="/villa/villa-yolo-5br.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-yolo-5br.html</div></td></tr>
+      <tr data-s="yolo-5br-2 욜로 타오디엔 5룸 (b) 타오디엔, 호치민 2군 /villa/villa-yolo-5br-2.html"><td>25</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">YOLO-5BR-2</td><td>욜로 타오디엔 5룸 (B)</td><td class="note">타오디엔, 호치민 2군</td><td><a href="/villa/villa-yolo-5br-2.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-yolo-5br-2.html</div></td></tr>
+      <tr data-s="yolo-6br 욜로 타오디엔 6룸 (a) 타오디엔, 호치민 2군 /villa/villa-yolo-6br.html"><td>26</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">YOLO-6BR</td><td>욜로 타오디엔 6룸 (A)</td><td class="note">타오디엔, 호치민 2군</td><td><a href="/villa/villa-yolo-6br.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-yolo-6br.html</div></td></tr>
+      <tr data-s="yolo-6br-2 욜로 타오디엔 6룸 (b) 타오디엔, 호치민 2군 /villa/villa-yolo-6br-2.html"><td>27</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">YOLO-6BR-2</td><td>욜로 타오디엔 6룸 (B)</td><td class="note">타오디엔, 호치민 2군</td><td><a href="/villa/villa-yolo-6br-2.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-yolo-6br-2.html</div></td></tr>
+      <tr data-s="yolo-7br 욜로 타오디엔 7룸 타오디엔, 호치민 2군 /villa/villa-yolo-7br.html"><td>28</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">YOLO-7BR</td><td>욜로 타오디엔 7룸</td><td class="note">타오디엔, 호치민 2군</td><td><a href="/villa/villa-yolo-7br.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-yolo-7br.html</div></td></tr>
+      <tr data-s="yolo-10br 욜로 타오디엔 10룸 타오디엔, 호치민 2군 /villa/villa-yolo-10br.html"><td>29</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">YOLO-10BR</td><td>욜로 타오디엔 10룸</td><td class="note">타오디엔, 호치민 2군</td><td><a href="/villa/villa-yolo-10br.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-yolo-10br.html</div></td></tr>
+      <tr data-s="yolo-27br 욜로 타오디엔 27룸 타오디엔, 호치민 2군 /villa/villa-yolo-27br.html"><td>30</td><td><span class="cat cat-빌라">빌라</span></td><td class="code">YOLO-27BR</td><td>욜로 타오디엔 27룸</td><td class="note">타오디엔, 호치민 2군</td><td><a href="/villa/villa-yolo-27br.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/villa/villa-yolo-27br.html</div></td></tr>
+      <tr data-s="호치민풀빌라 호치민풀빌라 완벽 가이드 — 예약 전 꼭 확인할 점 2026.06.10 /blog/ho-chi-minh-pool-villa-guide.html"><td>31</td><td><span class="cat cat-블로그">블로그</span></td><td class="code">호치민풀빌라</td><td>호치민풀빌라 완벽 가이드 — 예약 전 꼭 확인할 점</td><td class="note">2026.06.10</td><td><a href="/blog/ho-chi-minh-pool-villa-guide.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/blog/ho-chi-minh-pool-villa-guide.html</div></td></tr>
+      <tr data-s="베트남풀빌라 베트남풀빌라 지역별 정리 — 호치민·붕따우 2026.06.09 /blog/vietnam-pool-villa-guide.html"><td>32</td><td><span class="cat cat-블로그">블로그</span></td><td class="code">베트남풀빌라</td><td>베트남풀빌라 지역별 정리 — 호치민·붕따우</td><td class="note">2026.06.09</td><td><a href="/blog/vietnam-pool-villa-guide.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/blog/vietnam-pool-villa-guide.html</div></td></tr>
+      <tr data-s="4룸 호치민풀빌라 4룸 호치민풀빌라 추천 — 소규모 가족·친구 모임 2026.06.08 /blog/4-room-hcm-pool-villa.html"><td>33</td><td><span class="cat cat-블로그">블로그</span></td><td class="code">4룸 호치민풀빌라</td><td>4룸 호치민풀빌라 추천 — 소규모 가족·친구 모임</td><td class="note">2026.06.08</td><td><a href="/blog/4-room-hcm-pool-villa.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/blog/4-room-hcm-pool-villa.html</div></td></tr>
+      <tr data-s="5룸 호치민풀빌라 5룸 호치민풀빌라 추천 — 여유로운 단체 여행 2026.06.07 /blog/5-room-hcm-pool-villa.html"><td>34</td><td><span class="cat cat-블로그">블로그</span></td><td class="code">5룸 호치민풀빌라</td><td>5룸 호치민풀빌라 추천 — 여유로운 단체 여행</td><td class="note">2026.06.07</td><td><a href="/blog/5-room-hcm-pool-villa.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/blog/5-room-hcm-pool-villa.html</div></td></tr>
+      <tr data-s="6룸 호치민풀빌라 6룸 호치민풀빌라 추천 — 중대형 단체의 정답 2026.06.06 /blog/6-room-hcm-pool-villa.html"><td>35</td><td><span class="cat cat-블로그">블로그</span></td><td class="code">6룸 호치민풀빌라</td><td>6룸 호치민풀빌라 추천 — 중대형 단체의 정답</td><td class="note">2026.06.06</td><td><a href="/blog/6-room-hcm-pool-villa.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/blog/6-room-hcm-pool-villa.html</div></td></tr>
+      <tr data-s="7룸 호치민풀빌라 7룸 호치민풀빌라 추천 — 대단체 모임 2026.06.05 /blog/7-room-hcm-pool-villa.html"><td>36</td><td><span class="cat cat-블로그">블로그</span></td><td class="code">7룸 호치민풀빌라</td><td>7룸 호치민풀빌라 추천 — 대단체 모임</td><td class="note">2026.06.05</td><td><a href="/blog/7-room-hcm-pool-villa.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/blog/7-room-hcm-pool-villa.html</div></td></tr>
+      <tr data-s="8룸 호치민풀빌라 8룸 호치민풀빌라 추천 — 프리미엄 대형 빌라 2026.06.04 /blog/8-room-hcm-pool-villa.html"><td>37</td><td><span class="cat cat-블로그">블로그</span></td><td class="code">8룸 호치민풀빌라</td><td>8룸 호치민풀빌라 추천 — 프리미엄 대형 빌라</td><td class="note">2026.06.04</td><td><a href="/blog/8-room-hcm-pool-villa.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/blog/8-room-hcm-pool-villa.html</div></td></tr>
+      <tr data-s="9룸 호치민풀빌라 9룸 호치민풀빌라 추천 — 최대 인원 모임 2026.06.03 /blog/9-room-hcm-pool-villa.html"><td>38</td><td><span class="cat cat-블로그">블로그</span></td><td class="code">9룸 호치민풀빌라</td><td>9룸 호치민풀빌라 추천 — 최대 인원 모임</td><td class="note">2026.06.03</td><td><a href="/blog/9-room-hcm-pool-villa.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/blog/9-room-hcm-pool-villa.html</div></td></tr>
+      <tr data-s="4룸 붕따우풀빌라 4룸 붕따우풀빌라 추천 — 바다 가까운 휴양 2026.06.02 /blog/4-room-vungtau-pool-villa.html"><td>39</td><td><span class="cat cat-블로그">블로그</span></td><td class="code">4룸 붕따우풀빌라</td><td>4룸 붕따우풀빌라 추천 — 바다 가까운 휴양</td><td class="note">2026.06.02</td><td><a href="/blog/4-room-vungtau-pool-villa.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/blog/4-room-vungtau-pool-villa.html</div></td></tr>
+      <tr data-s="호치민풀빌라 파티 호치민풀빌라 생일·bbq 파티 준비 가이드 2026.06.01 /blog/hcm-pool-villa-party-guide.html"><td>40</td><td><span class="cat cat-블로그">블로그</span></td><td class="code">호치민풀빌라 파티</td><td>호치민풀빌라 생일·BBQ 파티 준비 가이드</td><td class="note">2026.06.01</td><td><a href="/blog/hcm-pool-villa-party-guide.html" target="_blank" rel="noopener">열기 ↗</a><div class="url">/blog/hcm-pool-villa-party-guide.html</div></td></tr>
+      </tbody>
+    </table>
+
+    <p class="hint">⚠️ 이 페이지는 정적 사이트의 기본 보호입니다. 완전한 보안이 필요하면 서버 인증을 추가해야 합니다.<br>
+    비밀번호 변경: admin.html 파일의 <code>var ADMIN_PASS</code> 값을 수정하세요.</p>
+  </div>
+
+  <script>
+    var ADMIN_PASS = "wotlr0903@";   // 👈 비밀번호 (꼭 변경하세요)
+    function doLogin() {
+      var v = document.getElementById("pw").value;
+      if (v === ADMIN_PASS) {
+        document.getElementById("gate").style.display = "none";
+        document.getElementById("panel").style.display = "block";
+      } else {
+        document.getElementById("err").textContent = "비밀번호가 올바르지 않습니다.";
+      }
+    }
+    function filterRows() {
+      var q = document.getElementById("search").value.toLowerCase().trim();
+      var rows = document.querySelectorAll("#tbody tr");
+      rows.forEach(function (r) {
+        r.style.display = r.getAttribute("data-s").indexOf(q) !== -1 ? "" : "none";
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 /* ==============================
-   MAIN.JS  —  호치민풀빌라 (dùng chung mọi trang)
+   MAIN.JS  —  Villa Hồ Bơi HCM (dùng chung mọi trang)
 ============================== */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -137,7 +137,7 @@ function initScrollReveal() {
   items.forEach(function (item) { observer.observe(item); });
 }
 
-/* ============ FILTER + LOAD MORE (목록 페이지) ============ */
+/* ============ FILTER + LOAD MORE (trang danh sách) ============ */
 function initVillaFilterLoadMore() {
   const filterButtons = document.querySelectorAll(".villa-filter-btn");
   const villaCards = Array.prototype.slice.call(document.querySelectorAll("#villaGrid .villa-card"));
