@@ -97,7 +97,7 @@ var homeVillas = [
       "루프탑 수영장",
       "노래방"
     ],
-    "img": "picter/picter-villa/villa-luxe-verde/1.jpg",
+    "img": "picter/picter-villa/villa-luxe-verde/1.JPEG",
     "url": "villa/villa-luxe-verde.html"
   },
   {
@@ -205,7 +205,7 @@ var homeVillas = [
       "수영장",
       "노래방"
     ],
-    "img": "picter/picter-villa/villa-sanorita/1.jpg",
+    "img": "picter/picter-villa/villa-sanorita/1.jpeg",
     "url": "villa/villa-sanorita.html"
   },
   {
