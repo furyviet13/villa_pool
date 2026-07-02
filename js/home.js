@@ -73,7 +73,7 @@ var homeVillas = [
       "루프탑 수영장",
       "노래방"
     ],
-    "img": "picter/picter-villa/299/1.jpg",
+    "img": "picter/picter-villa/299/10.jpg",
     "url": "villa/villa-detail-299.html"
   },
   {
@@ -85,7 +85,7 @@ var homeVillas = [
       "자쿠지",
       "BBQ"
     ],
-    "img": "picter/picter-villa/villa-d2-center/1.jpg",
+    "img": "picter/picter-villa/villa-d2-center/1.JPG",
     "url": "villa/villa-detail-d2-center.html"
   },
   {
@@ -157,7 +157,7 @@ var homeVillas = [
       "인피니티풀",
       "사우나"
     ],
-    "img": "picter/picter-villa/villa-mia/1.jpg",
+    "img": "picter/picter-villa/villa-mia/1.JPG",
     "url": "villa/villa-mia-riverside.html"
   },
   {
