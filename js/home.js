@@ -121,7 +121,7 @@ var homeVillas = [
       "피아노",
       "럭셔리"
     ],
-    "img": "picter/picter-villa/villa-harmony/1.jpg",
+    "img": "picter/picter-villa/villa-harmony/1.JPG",
     "url": "villa/villa-harmony.html"
   },
   {
