@@ -5,7 +5,7 @@
 
 var homeVillas = [
   {
-    "name": "Q2-6BR",
+    "name": "J2-199",
     "rooms": "침실 6개 • 침대 7개 • 욕실 7개",
     "desc": "호치민 2군 응우옌티딘에 위치한 프리미엄 풀빌라. 1층+4개 층·엘리베이터, 6개 침실 모두 개별 욕실을 갖춘 럭셔리 빌라입니다.",
     "tags": [
@@ -17,7 +17,7 @@ var homeVillas = [
     "url": "villa/villa-detail-199.html"
   },
   {
-    "name": "Q2-8BR",
+    "name": "J2-18",
     "rooms": "침실 8개 • 침대 8개 • 욕실 7개",
     "desc": "호치민 2군 안카인의 프리미엄 정원 빌라. 8개 침실·7개 욕실, 현대적이고 동선이 좋은 대형 빌라로 단체 모임에 적합합니다.",
     "tags": [
@@ -29,7 +29,7 @@ var homeVillas = [
     "url": "villa/villa-detail-sanvuon-q2.html"
   },
   {
-    "name": "Q2-6BR-2",
+    "name": "J2-9",
     "rooms": "침실 6개 • 침대 6개 • 욕실 7개",
     "desc": "투득시 하도 단지의 약 700㎡ 빌라. 전용 엘리베이터, 노래방, 자쿠지, 스톤 사우나를 갖춘 고급 빌라입니다.",
     "tags": [
@@ -41,7 +41,7 @@ var homeVillas = [
     "url": "villa/villa-ruby-09.html"
   },
   {
-    "name": "Q2-7BR",
+    "name": "J2-TD",
     "rooms": "침실 7개 • 침대 7개 • 욕실 6개",
     "desc": "타오디엔의 다층 프리미엄 풀빌라. 7개 침실, 프라이빗 수영장과 전용 노래방 시설을 갖춘 럭셔리 빌라입니다.",
     "tags": [
@@ -53,7 +53,7 @@ var homeVillas = [
     "url": "villa/thao-dien-villa.html"
   },
   {
-    "name": "Q2-8BR-2",
+    "name": "J2-TT",
     "rooms": "침실 8개 • 침대 9개 • 욕실 7개",
     "desc": "호치민 2군의 약 700㎡ 빌라. 지하1·지상3층, 8개 침실·9개 침대로 단체 모임과 가족 여행에 적합합니다.",
     "tags": [
@@ -65,7 +65,7 @@ var homeVillas = [
     "url": "villa/central-villa.html"
   },
   {
-    "name": "Q2-7BR-2",
+    "name": "J2-TD-2",
     "rooms": "침실 7개 • 침대 8개 • 욕실 7개",
     "desc": "안푸의 프리미엄 풀빌라. 당구대 거실, 전용 노래방, 루프탑 수영장(2x4m)을 갖춘 럭셔리 빌라입니다.",
     "tags": [
@@ -77,7 +77,7 @@ var homeVillas = [
     "url": "villa/villa-detail-299.html"
   },
   {
-    "name": "Q2-6BR-3",
+    "name": "J2-97",
     "rooms": "침실 6개 • 침대 6개 • 욕실 5개",
     "desc": "2군 중심의 약 700㎡ 풀빌라. 노래방·당구대·가든 BBQ·수영장·자쿠지를 갖췄으며 1군까지 약 7분, 메트로역과 가깝습니다.",
     "tags": [
@@ -89,7 +89,7 @@ var homeVillas = [
     "url": "villa/villa-detail-d2-center.html"
   },
   {
-    "name": "Q2-7BR-3",
+    "name": "J2-10",
     "rooms": "침실 7개 • 침대 7개 • 욕실 6개",
     "desc": "타인미러이의 리조트형 빌라. 루프탑 수영장, 방음 노래방·당구대·BBQ, 대형 공원이 보이는 입지를 갖췄습니다.",
     "tags": [
@@ -101,7 +101,7 @@ var homeVillas = [
     "url": "villa/villa-luxe-verde.html"
   },
   {
-    "name": "Q2-8BR-3",
+    "name": "J2-18-3",
     "rooms": "침실 8개 • 침대 9개 • 욕실 5개",
     "desc": "네오클래식 스타일 빌라. 8개 침실, 층별 노래방·로비 당구대·프라이빗 수영장·넓은 가든 BBQ를 갖춘 빌라입니다.",
     "tags": [
@@ -113,7 +113,7 @@ var homeVillas = [
     "url": "villa/villa-diamond.html"
   },
   {
-    "name": "Q2-9BR",
+    "name": "J2-7",
     "rooms": "침실 9개 • 침대 9개 • 욕실 9개",
     "desc": "풀럭셔리 네오클래식 빌라. 9개 마스터룸(개별 욕실), 수영장·방음 노래방·당구대·BBQ·피아노를 갖췄습니다.",
     "tags": [
@@ -125,7 +125,7 @@ var homeVillas = [
     "url": "villa/villa-harmony.html"
   },
   {
-    "name": "Q2-10BR",
+    "name": "J2-22",
     "rooms": "침실 10개 • 침대 10개 • 욕실 7개",
     "desc": "사이공 미스터리의 대형 풀빌라. 10개 침실, 헬스장·노래방·당구대·대형 수영장·엘리베이터를 갖춘 빌라입니다.",
     "tags": [
@@ -137,7 +137,7 @@ var homeVillas = [
     "url": "villa/villa-garden-oasis.html"
   },
   {
-    "name": "Q2-6BR-4",
+    "name": "J2-40",
     "rooms": "침실 6개 • 침대 8개 • 욕실 5개",
     "desc": "안카인의 리조트형 풀빌라. 6개 침실, 노래방·당구대·가든 BBQ, 넓은 수영장과 현대적 디자인을 갖췄습니다.",
     "tags": [
@@ -149,7 +149,7 @@ var homeVillas = [
     "url": "villa/villa-paradise.html"
   },
   {
-    "name": "BC-9BR",
+    "name": "BC-92",
     "rooms": "침실 9개 • 침대 9개 • 욕실 6개",
     "desc": "쭝선 단지의 리버사이드 빌라. 루프탑 인피니티풀, 노래방·당구대·BBQ·사우나, 강·공원 전망을 갖췄습니다.",
     "tags": [
@@ -161,7 +161,7 @@ var homeVillas = [
     "url": "villa/villa-mia-riverside.html"
   },
   {
-    "name": "Q1-6BR",
+    "name": "J1-87",
     "rooms": "침실 6개 • 침대 7개 • 욕실 6개",
     "desc": "호치민 1군 중심의 풀빌라. 6개 침실, 1층 노래방·대형 수영장·사우나, 현대적이고 세련된 인테리어를 갖췄습니다.",
     "tags": [
@@ -173,7 +173,7 @@ var homeVillas = [
     "url": "villa/villa-ben-thanh.html"
   },
   {
-    "name": "Q7-9BR",
+    "name": "J7-5",
     "rooms": "침실 9개 • 침대 11개 • 욕실 8개",
     "desc": "7군 힘람의 빌라. 9개 침실·11개 침대, 자쿠지·건식/습식 사우나·엘리베이터·BBQ·당구대를 갖춘 빌라입니다.",
     "tags": [
@@ -185,7 +185,7 @@ var homeVillas = [
     "url": "villa/villa-sunrise-q7.html"
   },
   {
-    "name": "Q7-9BR-2",
+    "name": "J7-7",
     "rooms": "침실 9개 • 침대 10개 • 욕실 6개",
     "desc": "7군 힘람의 풀럭셔리 빌라. 노래방·당구대·BBQ·사우나·자쿠지와 피아노 스튜디오를 갖춘 빌라입니다.",
     "tags": [
@@ -197,7 +197,7 @@ var homeVillas = [
     "url": "villa/villa-luna-casa.html"
   },
   {
-    "name": "Q7-9BR-3",
+    "name": "J7-13",
     "rooms": "침실 9개 • 침대 10개 • 욕실 6개",
     "desc": "7군 힘람의 풀빌라. 9개 침실, 노래방·당구대·BBQ·수영장을 갖춘 럭셔리 인테리어의 빌라입니다.",
     "tags": [
@@ -209,7 +209,7 @@ var homeVillas = [
     "url": "villa/villa-sanorita.html"
   },
   {
-    "name": "YOLO-4BR",
+    "name": "Y5",
     "rooms": "침실 4개 • 욕실 4개",
     "desc": "타오디엔 욜로(Yolo) 단지의 4룸·4욕실 프라이빗 풀빌라입니다. (상세 정보 준비 중)",
     "tags": [
@@ -218,10 +218,10 @@ var homeVillas = [
       "욜로"
     ],
     "img": "picter/picter-villa/Yolo/4BR-4WC-thaodien/1.jpg",
-    "url": "villa/villa-yolo-4br.html"
+    "url": "villa/villa-Y5.html"
   },
   {
-    "name": "YOLO-5BR",
+    "name": "Y3",
     "rooms": "침실 5개 • 욕실 5개",
     "desc": "타오디엔 욜로(Yolo) 단지의 5룸 프라이빗 풀빌라입니다. (상세 정보 준비 중)",
     "tags": [
@@ -230,10 +230,10 @@ var homeVillas = [
       "욜로"
     ],
     "img": "picter/picter-villa/Yolo/5BR-thaodien/1.jpg",
-    "url": "villa/villa-yolo-5br.html"
+    "url": "villa/villa-Y3.html"
   },
   {
-    "name": "YOLO-5BR-2",
+    "name": "Y6",
     "rooms": "침실 5개 • 욕실 5개",
     "desc": "타오디엔 욜로(Yolo) 단지의 5룸 프라이빗 풀빌라(B동)입니다. (상세 정보 준비 중)",
     "tags": [
@@ -242,10 +242,10 @@ var homeVillas = [
       "욜로"
     ],
     "img": "picter/picter-villa/Yolo/5BR-2-thaodien/1.jpg",
-    "url": "villa/villa-yolo-5br-2.html"
+    "url": "villa/villa-Y6.html"
   },
   {
-    "name": "YOLO-6BR",
+    "name": "Y4",
     "rooms": "침실 6개 • 욕실 6개",
     "desc": "타오디엔 욜로(Yolo) 단지의 6룸·6욕실 프라이빗 풀빌라입니다. (상세 정보 준비 중)",
     "tags": [
@@ -254,10 +254,10 @@ var homeVillas = [
       "욜로"
     ],
     "img": "picter/picter-villa/Yolo/6BR-6WC-thaodien/1.jpg",
-    "url": "villa/villa-yolo-6br.html"
+    "url": "villa/villa-Y4.html"
   },
   {
-    "name": "YOLO-6BR-2",
+    "name": "Y7",
     "rooms": "침실 6개 • 욕실 6개",
     "desc": "타오디엔 욜로(Yolo) 단지의 6룸 프라이빗 풀빌라(B동)입니다. (상세 정보 준비 중)",
     "tags": [
@@ -266,10 +266,10 @@ var homeVillas = [
       "욜로"
     ],
     "img": "picter/picter-villa/Yolo/6BR-N-thaodien/1.jpg",
-    "url": "villa/villa-yolo-6br-2.html"
+    "url": "villa/villa-Y7.html"
   },
   {
-    "name": "YOLO-7BR",
+    "name": "Y2",
     "rooms": "침실 7개 • 욕실 6개",
     "desc": "타오디엔 욜로(Yolo) 단지의 7룸 풀빌라입니다. (상세 정보 준비 중)",
     "tags": [
@@ -278,10 +278,10 @@ var homeVillas = [
       "욜로"
     ],
     "img": "picter/picter-villa/Yolo/7BR-thaodien/1.jpg",
-    "url": "villa/villa-yolo-7br.html"
+    "url": "villa/villa-Y2.html"
   },
   {
-    "name": "YOLO-10BR",
+    "name": "Y1",
     "rooms": "침실 10개 • 욕실 8개",
     "desc": "타오디엔 욜로(Yolo) 단지의 10룸 대형 풀빌라입니다. (상세 정보 준비 중)",
     "tags": [
@@ -290,10 +290,10 @@ var homeVillas = [
       "욜로"
     ],
     "img": "picter/picter-villa/Yolo/10BR-thaodien/1.jpg",
-    "url": "villa/villa-yolo-10br.html"
+    "url": "villa/villa-Y1.html"
   },
   {
-    "name": "YOLO-27BR",
+    "name": "대형 풀빌라",
     "rooms": "침실 27개 • 욕실 20개",
     "desc": "타오디엔 욜로(Yolo) 단지의 27룸 초대형 빌라입니다. (상세 정보 준비 중)",
     "tags": [
@@ -302,7 +302,7 @@ var homeVillas = [
       "욜로"
     ],
     "img": "picter/picter-villa/Yolo/27BR-thaodien/1.jpg",
-    "url": "villa/villa-yolo-27br.html"
+    "url": "villa/villa-대형 풀빌라.html"
   }
 ];
 
