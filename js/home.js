@@ -218,7 +218,7 @@ var homeVillas = [
       "욜로"
     ],
     "img": "picter/picter-villa/Yolo/4BR-4WC-thaodien/1.jpg",
-    "url": "villa/villa-Y5.html"
+    "url": "villa/villa-yolo-4br.html"
   },
   {
     "name": "Y3",
@@ -230,7 +230,7 @@ var homeVillas = [
       "욜로"
     ],
     "img": "picter/picter-villa/Yolo/5BR-thaodien/1.jpg",
-    "url": "villa/villa-Y3.html"
+    "url": "villa/villa-yolo-5br.html"
   },
   {
     "name": "Y6",
@@ -242,7 +242,7 @@ var homeVillas = [
       "욜로"
     ],
     "img": "picter/picter-villa/Yolo/5BR-2-thaodien/1.jpg",
-    "url": "villa/villa-Y6.html"
+    "url": "villa/villa-yolo-5br-2.html"
   },
   {
     "name": "Y4",
@@ -254,7 +254,7 @@ var homeVillas = [
       "욜로"
     ],
     "img": "picter/picter-villa/Yolo/6BR-6WC-thaodien/1.jpg",
-    "url": "villa/villa-Y4.html"
+    "url": "villa/villa-yolo-6br.html"
   },
   {
     "name": "Y7",
@@ -266,7 +266,7 @@ var homeVillas = [
       "욜로"
     ],
     "img": "picter/picter-villa/Yolo/6BR-N-thaodien/1.jpg",
-    "url": "villa/villa-Y7.html"
+    "url": "villa/villa-yolo-6br-2.html"
   },
   {
     "name": "Y2",
@@ -278,7 +278,7 @@ var homeVillas = [
       "욜로"
     ],
     "img": "picter/picter-villa/Yolo/7BR-thaodien/1.jpg",
-    "url": "villa/villa-Y2.html"
+    "url": "villa/villa-yolo-7br.html"
   },
   {
     "name": "Y1",
@@ -290,7 +290,7 @@ var homeVillas = [
       "욜로"
     ],
     "img": "picter/picter-villa/Yolo/10BR-thaodien/1.jpg",
-    "url": "villa/villa-Y1.html"
+    "url": "villa/villa-yolo-10br.html"
   },
   {
     "name": "대형 풀빌라",
